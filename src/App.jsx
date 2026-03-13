@@ -15,8 +15,10 @@ function App() {
   const [visibleSections, setVisibleSections] = useState(new Set());
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [lang, setLang] = useState('fr');
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const langRef = useRef(null);
   const cursorRef = useRef(null);
-  
+
   const T = translations[lang];
 
   // Instant cursor tracking (No delay)
@@ -26,9 +28,18 @@ function App() {
         cursorRef.current.style.transform = `translate3d(${e.clientX - 7}px, ${e.clientY - 7}px, 0)`;
       }
     };
+    const handleClickOutside = (event) => {
+      if (langRef.current && !langRef.current.contains(event.target)) {
+        setIsLangOpen(false);
+      }
+    };
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousedown', handleClickOutside);
 
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   // Intersection Observer for scroll animations
@@ -61,25 +72,58 @@ function App() {
     }
   }, [isDarkMode]);
 
+  // Handle RTL for Arabic
+  useEffect(() => {
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   return (
-    <div className="min-h-screen relative bg-indie-bg text-indie-text selection:bg-indie-primary/30 selection:text-indie-text overflow-x-hidden font-sans transition-colors duration-1000 ease-in-out">
+    <div className={`min-h-screen relative bg-indie-bg text-indie-text selection:bg-indie-primary/30 selection:text-indie-text overflow-x-hidden font-sans transition-colors duration-1000 ease-in-out ${lang === 'ar' ? 'font-arabic' : ''}`}>
 
       {/* Super smooth generic cursor */}
       <div ref={cursorRef} className="custom-cursor hidden md:block" />
 
-      {/* Theme & Language Toggles */}
-      <div className="fixed top-8 right-8 md:right-12 z-[200] flex gap-3">
-        {/* Language Toggle */}
-        <button 
-          onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')}
-          className="w-12 h-12 rounded-full bg-white/40 dark:bg-black/20 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-glass flex items-center justify-center text-indie-text hover:text-indie-primary transition-all duration-500 group uppercase text-[10px] font-bold tracking-widest"
-        >
-          <div className="absolute inset-0 rounded-full bg-indie-primary/0 group-hover:bg-indie-primary/10 transition-colors duration-500" />
-          <span className="relative z-10">{lang === 'fr' ? 'EN' : 'FR'}</span>
-        </button>
+      {/* Theme & Language Selectors */}
+      <div className={`fixed top-8 ${lang === 'ar' ? 'left-8 md:left-12' : 'right-8 md:right-12'} z-[200] flex gap-3`}>
+        {/* Language Selector Dropdown */}
+        <div className="relative" ref={langRef}>
+          <button
+            onClick={() => setIsLangOpen(!isLangOpen)}
+            className="w-12 h-12 rounded-full bg-white/40 dark:bg-black/20 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-glass flex items-center justify-center text-indie-text hover:text-indie-primary transition-all duration-500 group uppercase text-[10px] font-bold tracking-widest"
+            title="Choose Language"
+          >
+            <div className="absolute inset-0 rounded-full bg-indie-primary/0 group-hover:bg-indie-primary/10 transition-colors duration-500" />
+            <span className="relative z-10">{lang}</span>
+          </button>
+
+          {/* Dropdown Menu */}
+          <div className={`absolute top-14 ${lang === 'ar' ? 'left-0' : 'right-0'} bg-white/60 dark:bg-black/40 backdrop-blur-xl border border-white/60 dark:border-white/10 rounded-2xl shadow-2xl transition-all duration-500 overflow-hidden ${isLangOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'}`}>
+            <div className="py-2 w-32">
+              {[
+                { id: 'fr', label: 'Français' },
+                { id: 'en', label: 'English' },
+                { id: 'es', label: 'Español' },
+                { id: 'ar', label: 'العربية' }
+              ].map((l) => (
+                <button
+                  key={l.id}
+                  onClick={() => {
+                    setLang(l.id);
+                    setIsLangOpen(false);
+                  }}
+                  className={`w-full px-4 py-2.5 text-left flex items-center justify-between text-[11px] font-medium tracking-wide transition-colors ${lang === l.id ? 'text-indie-primary bg-indie-primary/10' : 'text-indie-text hover:bg-white/40 dark:hover:bg-white/10'}`}
+                >
+                  <span className={l.id === 'ar' ? 'font-arabic text-sm' : ''}>{l.label}</span>
+                  {lang === l.id && <div className="w-1.5 h-1.5 rounded-full bg-indie-primary shadow-[0_0_8px_rgba(var(--indie-primary-rgb),0.6)]" />}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* Theme Toggle Button */}
-        <button 
+        <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           className="w-12 h-12 rounded-full bg-white/40 dark:bg-black/20 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-glass flex items-center justify-center text-indie-text hover:text-indie-primary transition-all duration-500 group"
         >
@@ -92,9 +136,9 @@ function App() {
       <SideBar activeSection={activeSection} t={T.nav} />
       <ProfilePhoto />
 
-      <main className="relative z-10 max-w-6xl mx-auto md:pl-24">
+      <main className={`relative z-10 max-w-6xl mx-auto ${lang === 'ar' ? 'md:pr-24' : 'md:pl-24'}`}>
         <section id="hero" className={`min-h-screen flex items-center justify-start transition-all duration-1000 ${visibleSections.has('hero') ? 'animate-fade-in' : 'opacity-0'}`}>
-          <div className="text-left space-y-8 px-8 sm:px-12 w-full max-w-3xl pt-24 md:pt-0">
+          <div className={`${lang === 'ar' ? 'text-right' : 'text-left'} space-y-8 px-8 sm:px-12 w-full max-w-3xl pt-24 md:pt-0`}>
             <div className="space-y-4">
               <span className="inline-block text-indie-primary text-[11px] font-semibold tracking-[0.3em] uppercase">
                 {T.hero.subtitle}
@@ -108,10 +152,10 @@ function App() {
               {T.hero.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 pt-10">
+            <div className={`flex flex-col sm:flex-row gap-6 pt-10 ${lang === 'ar' ? 'sm:flex-row-reverse' : ''}`}>
               <a href="#projects" className="group px-8 py-4 bg-indie-text text-indie-bg rounded-full hover:bg-indie-primary hover:shadow-lg hover:shadow-indie-primary/20 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium flex items-center justify-center gap-3">
                 {T.hero.cta_work}
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                <span className={`${lang === 'ar' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'} transition-transform`}>{lang === 'ar' ? '←' : '→'}</span>
               </a>
               <div className="flex flex-col gap-3">
                 <a
@@ -122,7 +166,12 @@ function App() {
                   {T.hero.cta_cv}
                 </a>
                 <a
-                  href={isDarkMode ? "/CV_Ilyace_KADRI_Dark.html" : "/CV_Ilyace_KADRI_Light.html"}
+                  href={
+                    lang === 'fr' ? (isDarkMode ? "/CV_Ilyace_KADRI_Dark.html" : "/CV_Ilyace_KADRI_Light.html") :
+                      lang === 'en' ? (isDarkMode ? "/CV_Ilyace_KADRI_Dark_EN.html" : "/CV_Ilyace_KADRI_Light_EN.html") :
+                        lang === 'es' ? (isDarkMode ? "/CV_Ilyace_KADRI_Dark_ES.html" : "/CV_Ilyace_KADRI_Light_ES.html") :
+                          (isDarkMode ? "/CV_Ilyace_KADRI_Dark_AR.html" : "/CV_Ilyace_KADRI_Light_AR.html")
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-center text-[10px] tracking-[0.2em] uppercase text-indie-muted hover:text-indie-primary transition-colors"
