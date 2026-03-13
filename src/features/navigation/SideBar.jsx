@@ -1,16 +1,16 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Shield, Settings, FileText, Send, Briefcase } from 'lucide-react';
 
-const SideBar = ({ activeSection }) => (
+const SideBar = ({ activeSection, t }) => (
   <aside className="fixed left-8 md:left-10 top-1/2 -translate-y-1/2 z-[100] hidden md:flex flex-col items-center gap-5 bg-white/40 dark:bg-black/20 backdrop-blur-md py-6 px-3 rounded-2xl border border-white/60 dark:border-white/10 shadow-glass transition-all duration-1000">
     <div className="w-px h-6 bg-gradient-to-b from-transparent via-indie-muted/30 to-transparent" />
     <div className="flex flex-col gap-6">
       {[
-        { id: 'hero', label: 'profil', icon: Shield },
-        { id: 'stack', label: 'stack', icon: Settings },
-        { id: 'cv', label: 'cv', icon: Briefcase },
-        { id: 'projects', label: 'projets', icon: FileText },
-        { id: 'contact', label: 'contact', icon: Send }
+        { id: 'hero', label: t.profil, icon: Shield },
+        { id: 'stack', label: t.stack, icon: Settings },
+        { id: 'cv', label: t.cv, icon: Briefcase },
+        { id: 'projects', label: t.projects, icon: FileText },
+        { id: 'contact', label: t.contact, icon: Send }
       ].map((item) => (
         <a key={item.id} href={`#${item.id}`} className="relative group/icon flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-300">
           <div className={`absolute inset-0 rounded-lg bg-indie-text/5 dark:bg-indie-text/10 transition-all ${activeSection === item.id ? 'scale-100' : 'scale-0 group-hover/icon:scale-100'}`} />

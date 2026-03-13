@@ -1,19 +1,19 @@
 import React from 'react';
 
-const Experience = ({ className }) => {
+const Experience = ({ className, t }) => {
     const experiences = [
         {
-            title: "Educateur sportif",
+            title: t.exp1_title,
             company: "CREPS d'Ile de France",
             period: "2024 — 2025",
-            description: "Encadrement de groupes d'enfants et d'adolescents lors de stages sportifs.",
+            description: t.exp1_desc,
             type: "exp"
         },
         {
-            title: "Bachelor Cybersécurité",
+            title: t.edu1_title,
             company: "Ynov Campus",
             period: "2025 — 2026",
-            description: "Formation en réseaux, systèmes, et sécurité informatique.",
+            description: t.edu1_desc,
             type: "edu"
         }
     ];
@@ -22,8 +22,8 @@ const Experience = ({ className }) => {
         <section id="cv" className={`min-h-screen py-32 px-8 sm:px-12 flex flex-col justify-center relative ${className}`}>
             <div className="max-w-4xl w-full">
                 <div className="mb-20">
-                    <h2 className="text-[16px] font-semibold tracking-[0.2em] text-indie-primary uppercase mb-2">Parcours</h2>
-                    <h3 className="text-4xl font-serif text-indie-text">Expériences & Formation</h3>
+                    <h2 className="text-[16px] font-semibold tracking-[0.2em] text-indie-primary uppercase mb-2">{t.title}</h2>
+                    <h3 className="text-4xl font-serif text-indie-text">{t.subtitle}</h3>
                     <div className="w-12 h-px bg-indie-primary/30 mt-6" />
                 </div>
 
