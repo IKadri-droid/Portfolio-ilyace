@@ -195,12 +195,15 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
-            {/* Project 1 */}
+            {/* Project 1 - Groupie Tracker */}
             <div className="group flex flex-col cursor-none">
               <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800/40 dark:to-slate-900/60 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
                 <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
-                <div className="absolute top-5 left-5 flex gap-2">
+                <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
                   <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Golang</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Stripe</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">PostgreSQL</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Docker</span>
                 </div>
               </div>
               <span className="text-indie-muted text-[11px] tracking-[0.1em] font-medium uppercase mb-2">{T.projects.p1_cat}</span>
@@ -210,13 +213,15 @@ function App() {
               </p>
             </div>
 
-            {/* Project 2 */}
+            {/* Project 2 - Discord Bot */}
             <div className="group flex flex-col md:mt-16 cursor-none">
               <div className="aspect-[4/3] bg-gradient-to-br from-[#E2E8F0] to-[#F1F5F9] dark:from-[#1E293B]/60 dark:to-[#0F172A]/80 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
                 <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
-                <div className="absolute top-5 left-5 flex gap-2">
-                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">React Native</span>
+                <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">TypeScript</span>
                   <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Node.js</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Neon DB</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Excalidraw</span>
                 </div>
               </div>
               <span className="text-indie-muted text-[11px] tracking-[0.1em] font-medium uppercase mb-2">{T.projects.p2_cat}</span>
@@ -226,16 +231,14 @@ function App() {
               </p>
             </div>
 
-            {/* Project 3 */}
+            {/* Project 3 - Puissance 4 */}
             <div className="group flex flex-col cursor-none">
               <div className="aspect-[4/3] bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] dark:from-[#212529]/60 dark:to-[#1a1d20]/80 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
-                <div className="absolute text-center flex items-center justify-center w-full h-full text-slate-400 dark:text-slate-600 transition-colors duration-500">
-                  <span className="font-serif italic text-lg opacity-40">{T.projects.p3_no_preview}</span>
-                </div>
                 <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
-                <div className="absolute top-5 left-5 flex gap-2">
-                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">React</span>
-                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Stripe</span>
+                <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Golang</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">WebSockets</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">HTML/CSS</span>
                 </div>
               </div>
               <span className="text-indie-muted text-[11px] tracking-[0.1em] font-medium uppercase mb-2">{T.projects.p3_cat}</span>
@@ -245,10 +248,17 @@ function App() {
               </p>
             </div>
 
-            {/* Project 4 */}
-            <div className="group flex flex-col md:mt-16 opacity-60 hover:opacity-100 transition-opacity duration-700 cursor-none">
-              <div className="aspect-[4/3] border border-dashed border-indie-muted/40 rounded-3xl mb-6 flex items-center justify-center bg-transparent transition-colors duration-500">
-                <span className="text-[10px] tracking-widest uppercase text-indie-muted">{T.projects.p4_status}</span>
+            {/* Project 4 - Pocket Leaf */}
+            <div className="group flex flex-col md:mt-16 cursor-none">
+              <div className="aspect-[4/3] border border-dashed border-indie-muted/40 rounded-3xl mb-6 flex items-center justify-center bg-transparent transition-colors duration-500 relative overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-[10px] tracking-widest uppercase text-indie-muted">{T.projects.p4_status}</span>
+                </div>
+                <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
+                  <span className="px-3 py-1.5 bg-white/30 dark:bg-black/20 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text font-medium">React Native</span>
+                  <span className="px-3 py-1.5 bg-white/30 dark:bg-black/20 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text font-medium">Node.js</span>
+                  <span className="px-3 py-1.5 bg-white/30 dark:bg-black/20 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text font-medium">MongoDB</span>
+                </div>
               </div>
               <span className="text-indie-muted text-[11px] tracking-[0.1em] font-medium uppercase mb-2">{T.projects.p4_cat}</span>
               <h3 className="text-xl font-serif text-indie-text mb-2 transition-colors duration-500">{T.projects.p4_title}</h3>
