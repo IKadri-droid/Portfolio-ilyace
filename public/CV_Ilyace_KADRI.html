@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV_Ilyace_KADRI_test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#A4D4BC',
+                        accent: '#FCAEBB',
+                        bgDark: '#0d0f12',
+                        sidebar: '#000000',
+                        textMain: '#1F2937',
+                        textMuted: '#4B5563',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .a4-page {
+            width: 210mm;
+            height: 297mm;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 70mm;
+            height: 100%;
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 10mm 6mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            width: 140mm;
+            height: 100%;
+            padding: 10mm 12mm;
+            background-color: #FFFFFF;
+        }
+
+        .profile-img-container {
+            width: 45mm;
+            height: 45mm;
+            margin: 0 auto 8mm;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #A4D4BC;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6mm;
+            margin-top: 4mm;
+        }
+
+        .section-line {
+            height: 1px;
+            background-color: #E5E7EB;
+            flex-grow: 1;
+        }
+
+        .section-title {
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            color: #111827;
+            font-size: 14px;
+        }
+
+        .sidebar-title {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #A4D4BC;
+            font-size: 13px;
+            margin-bottom: 4mm;
+            border-bottom: 1px solid rgba(164, 212, 188, 0.3);
+            padding-bottom: 1mm;
+        }
+
+        .experience-item {
+            margin-bottom: 6mm;
+            break-inside: avoid;
+        }
+
+        .contact-icon {
+            color: #A4D4BC;
+            width: 14px;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background-color: #F3F4F6;
+            border-radius: 3px;
+            margin-top: 2px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #A4D4BC;
+            border-radius: 3px;
+        }
+
+        .bullet {
+            color: #A4D4BC;
+            font-weight: bold;
+            display: inline-block;
+            width: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a4-page">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-img-container shadow-lg">
+                <img src="image1.png" alt="Ilyace KADRI" class="w-full h-full object-cover">
+            </div>
+
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold tracking-tight">ILYACE</h1>
+                <h1 class="text-3xl font-bold text-primary -mt-1">KADRI</h1>
+                <p class="text-sm font-light tracking-widest mt-1 opacity-80">Informaticien</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- CONTACT -->
+                <section>
+                    <h3 class="sidebar-title">Contact</h3>
+                    <div class="space-y-3 text-[11px]">
+                        <div class="flex items-center gap-3">
+                            <span class="contact-icon text-center">📞</span>
+                            <span>+33 7 68 13 99 15</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="contact-icon text-center">✉️</span>
+                            <span>Ilyace1999@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="contact-icon text-center">📍</span>
+                            <span>Saint-Malo, France</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="contact-icon text-center">👤</span>
+                            <span>26 ans</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="contact-icon text-center">🚗</span>
+                            <span>Permis B</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- LIENS -->
+                <section>
+                    <h3 class="sidebar-title">Portfolio</h3>
+                    <div class="space-y-2 text-[11px]">
+                        <div class="flex items-center gap-3">
+                            <span class="contact-icon">🔗</span>
+                            <span>github.com/IKadri-droid/Portfolio-ilyace</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- LANGUES -->
+                <section>
+                    <h3 class="sidebar-title">Langues</h3>
+                    <div class="space-y-2 text-[11px]">
+                        <p><span class="font-semibold">Français</span> | Maternel</p>
+                        <p><span class="font-semibold">Anglais</span> | C1 (Courant)</p>
+                        <p><span class="font-semibold">Espagnol</span> | B1</p>
+                        <p><span class="font-semibold">Arabe</span> | B1</p>
+                    </div>
+                </section>
+
+                <!-- LOGICIELS / TECH -->
+                <section>
+                    <h3 class="sidebar-title">Stack Technique</h3>
+                    <ul class="space-y-2 text-[10px] leading-relaxed">
+                        <li><span class="bullet">•</span> <span class="font-semibold">Langages :</span> Golang,
+                            TypeScript, JavaScript, HTML/CSS</li>
+                        <li><span class="bullet">•</span> <span class="font-semibold">Frameworks :</span> React Native,
+                            React, Tailwind CSS</li>
+                        <li><span class="bullet">•</span> <span class="font-semibold">Base de données :</span>
+                            PostgreSQL, MongoDB</li>
+                        <li><span class="bullet">•</span> <span class="font-semibold">Outils :</span> Docker, Git,
+                            GitHub</li>
+                    </ul>
+                </section>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Profil -->
+            <div class="section-header">
+                <div class="h-[1px] w-8 bg-gray-300"></div>
+                <h3 class="section-title">Profil Professionnel</h3>
+                <div class="section-line"></div>
+            </div>
+            <p class="text-[11px] text-textMuted leading-relaxed mb-6">
+                Étudiant en Bachelor Informatique passionné par le développement logiciel et les infrastructures réseau.
+                Fort d'une expérience variée dans la gestion de projets et l'animation d'équipe, je suis capable de
+                m'adapter rapidement à de nouveaux environnements techniques. Mon objectif est de mettre à profit mes
+                compétences pour contribuer de la manière la plus efficace possible aux projets de l'entreprise.
+            </p>
+
+            <!-- Expériences -->
+            <div class="section-header">
+                <div class="h-[1px] w-8 bg-gray-300"></div>
+                <h3 class="section-title">Expériences Professionnelles</h3>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="space-y-5">
+                <!-- Bachelor / Ynov -->
+                <div class="experience-item flex">
+                    <div
+                        class="w-32 flex-shrink-0 text-[10px] font-semibold text-textMuted py-0.5 uppercase tracking-wider">
+                        Depuis 2023<br><span class="font-normal opacity-60">Rennes, France</span>
+                    </div>
+                    <div>
+                        <h4 class="text-[13px] font-bold text-gray-900 uppercase">Bachelor Informatique</h4>
+                        <div class="text-[11px] text-primary font-semibold mb-2">Ynov Campus</div>
+                        <ul class="text-[11px] text-textMuted space-y-1.5">
+                            <li><span class="bullet">•</span> Apprentissage approfondi du développement logiciel et des
+                                fondamentaux du Web.</li>
+                            <li><span class="bullet">•</span> Initiation avancée aux concepts de cyber-sécurité et aux
+                                infrastructures réseau.</li>
+                            <li><span class="bullet">•</span> Mise en œuvre de projets techniques collaboratifs
+                                utilisant Docker et Git.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- UFOLEP -->
+                <div class="experience-item flex">
+                    <div
+                        class="w-32 flex-shrink-0 text-[10px] font-semibold text-textMuted py-0.5 uppercase tracking-wider">
+                        Depuis 2023<br><span class="font-normal opacity-60">Paris, France</span>
+                    </div>
+                    <div>
+                        <h4 class="text-[13px] font-bold text-gray-900 uppercase">Éducateur Sportif</h4>
+                        <div class="text-[11px] text-primary font-semibold mb-2">UFOLEP 93</div>
+                        <ul class="text-[11px] text-textMuted space-y-1.5">
+                            <li><span class="bullet">•</span> Gestion de projets pédagogiques spécifiques pour divers
+                                publics.</li>
+                            <li><span class="bullet">•</span> Maintenance technique et réparation de matériel
+                                spécialisé.</li>
+                            <li><span class="bullet">•</span> Animation et sécurisation d'environnements de pratique
+                                sportive.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mairie -->
+                <div class="experience-item flex">
+                    <div
+                        class="w-32 flex-shrink-0 text-[10px] font-semibold text-textMuted py-0.5 uppercase tracking-wider">
+                        2022 - 2023<br><span class="font-normal opacity-60">Seine-et-Marne</span>
+                    </div>
+                    <div>
+                        <h4 class="text-[13px] font-bold text-gray-900 uppercase">Éducateur Sportif</h4>
+                        <div class="text-[11px] text-primary font-semibold mb-2">Mairies de Roissy, Lagny et Pontault
+                        </div>
+                        <ul class="text-[11px] text-textMuted space-y-1.5">
+                            <li><span class="bullet">•</span> Conception et mise en œuvre de cycles d'apprentissage
+                                sportifs complets.</li>
+                            <li><span class="bullet">•</span> Animation de séances "Baby Éveil" et encadrement de
+                                groupes scolaires (4-12 ans).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation -->
+            <div class="section-header">
+                <div class="h-[1px] w-8 bg-gray-300"></div>
+                <h3 class="section-title">Formation</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="space-y-3">
+                <div class="text-[11px]">
+                    <div class="flex justify-between font-bold text-gray-800">
+                        <span>BPJEPS APT (Activités Physiques pour Tous)</span>
+                        <span class="text-gray-400">2022</span>
+                    </div>
+                    <div class="text-primary text-[10px] font-semibold uppercase">CREPS d’Île-de-France</div>
+                </div>
+                <div class="text-[11px]">
+                    <div class="flex justify-between font-bold text-gray-800">
+                        <span>Baccalauréat Professionnel ARCU</span>
+                        <span class="text-gray-400">2018</span>
+                    </div>
+                    <div class="text-primary text-[10px] font-semibold uppercase">Lycée Lino Ventura</div>
+                </div>
+            </div>
+
+            <!-- Compétences -->
+            <div class="section-header mt-4">
+                <div class="h-[1px] w-8 bg-gray-300"></div>
+                <h3 class="section-title">Soft Skills</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="grid grid-cols-3 gap-6">
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase text-gray-700">Rigueur</h5>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase text-gray-700">Adaptabilité</h5>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase text-gray-700">Esprit d'équipe</h5>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase text-gray-700">Autonomie</h5>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase text-gray-700">Force de proposition</h5>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase text-gray-700">Communication</h5>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

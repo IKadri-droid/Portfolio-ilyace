@@ -97,9 +97,23 @@ function App() {
                 Découvrir mon travail
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </a>
-              <a href="/cv-ilyace.pdf" className="px-8 py-4 bg-transparent text-indie-text border border-indie-text/20 rounded-full hover:border-indie-text hover:bg-indie-text/5 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium text-center shadow-sm">
-                Consulter mon CV
-              </a>
+              <div className="flex flex-col gap-3">
+                <a 
+                  href="/CV_Ilyace_KADRI.html" 
+                  download="CV_Ilyace_KADRI.html"
+                  className="px-8 py-4 bg-transparent text-indie-text border border-indie-text/20 rounded-full hover:border-indie-text hover:bg-indie-text/5 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium text-center shadow-sm"
+                >
+                  Télécharger mon CV
+                </a>
+                <a 
+                  href={isDarkMode ? "/CV_Ilyace_KADRI_Dark.html" : "/CV_Ilyace_KADRI_Light.html"} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-center text-[10px] tracking-[0.2em] uppercase text-indie-muted hover:text-indie-primary transition-colors"
+                >
+                  Consulter version web
+                </a>
+              </div>
             </div>
           </div>
         </section>
