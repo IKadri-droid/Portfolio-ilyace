@@ -59,12 +59,12 @@ function App() {
 
   return (
     <div className="min-h-screen relative bg-indie-bg text-indie-text selection:bg-indie-primary/30 selection:text-indie-text overflow-x-hidden font-sans transition-colors duration-1000 ease-in-out">
-      
+
       {/* Super smooth generic cursor */}
       <div ref={cursorRef} className="custom-cursor hidden md:block" />
-      
+
       {/* Theme Toggle Button */}
-      <button 
+      <button
         onClick={() => setIsDarkMode(!isDarkMode)}
         className="fixed top-8 right-8 md:right-12 z-[200] w-12 h-12 rounded-full bg-white/40 dark:bg-black/20 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-glass flex items-center justify-center text-indie-text hover:text-indie-primary transition-all duration-500 group"
       >
@@ -75,7 +75,7 @@ function App() {
       <BackgroundEffects />
       <SideBar activeSection={activeSection} />
       <ProfilePhoto />
-      
+
       <main className="relative z-10 max-w-6xl mx-auto md:pl-24">
         <section id="hero" className={`min-h-screen flex items-center justify-start transition-all duration-1000 ${visibleSections.has('hero') ? 'animate-fade-in' : 'opacity-0'}`}>
           <div className="text-left space-y-8 px-8 sm:px-12 w-full max-w-3xl pt-24 md:pt-0">
@@ -87,27 +87,27 @@ function App() {
                 Ilyace Kadri.
               </h1>
             </div>
-            
+
             <p className="text-indie-muted max-w-xl text-[15px] md:text-[16px] font-light leading-relaxed">
               Étudiant à <span className="text-indie-text font-medium transition-colors duration-500">Ynov Campus</span>. Passionné par l'architecture des systèmes, la protection des données et la création d'expériences numériques élégantes et sécurisées. Je conçois et je protège.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-6 pt-10">
               <a href="#projects" className="group px-8 py-4 bg-indie-text text-indie-bg rounded-full hover:bg-indie-primary hover:shadow-lg hover:shadow-indie-primary/20 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium flex items-center justify-center gap-3">
                 Découvrir mon travail
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </a>
               <div className="flex flex-col gap-3">
-                <a 
-                  href="/CV_Ilyace_KADRI.html" 
-                  download="CV_Ilyace_KADRI.html"
+                <a
+                  href="/CV_Ilyace_KADRI.pdf"
+                  download="CV_Ilyace_KADRI.pdf"
                   className="px-8 py-4 bg-transparent text-indie-text border border-indie-text/20 rounded-full hover:border-indie-text hover:bg-indie-text/5 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium text-center shadow-sm"
                 >
-                  Télécharger mon CV
+                  Télécharger mon CV (PDF)
                 </a>
-                <a 
-                  href={isDarkMode ? "/CV_Ilyace_KADRI_Dark.html" : "/CV_Ilyace_KADRI_Light.html"} 
-                  target="_blank" 
+                <a
+                  href={isDarkMode ? "/CV_Ilyace_KADRI_Dark.html" : "/CV_Ilyace_KADRI_Light.html"}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-center text-[10px] tracking-[0.2em] uppercase text-indie-muted hover:text-indie-primary transition-colors"
                 >
@@ -128,14 +128,14 @@ function App() {
             <h3 className="text-3xl font-serif text-indie-text transition-colors duration-500">Projets Récents</h3>
             <div className="w-12 h-px bg-indie-primary/30 mt-6" />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
             {/* Project 1 */}
             <div className="group flex flex-col cursor-none">
               <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800/40 dark:to-slate-900/60 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
                 <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
                 <div className="absolute top-5 left-5 flex gap-2">
-                    <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Golang</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Golang</span>
                 </div>
               </div>
               <span className="text-indie-muted text-[11px] tracking-[0.1em] font-medium uppercase mb-2">01 — Jeu Logic</span>
@@ -150,8 +150,8 @@ function App() {
               <div className="aspect-[4/3] bg-gradient-to-br from-[#E2E8F0] to-[#F1F5F9] dark:from-[#1E293B]/60 dark:to-[#0F172A]/80 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
                 <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
                 <div className="absolute top-5 left-5 flex gap-2">
-                    <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">React Native</span>
-                    <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Node.js</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">React Native</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Node.js</span>
                 </div>
               </div>
               <span className="text-indie-muted text-[11px] tracking-[0.1em] font-medium uppercase mb-2">02 — Mobile App</span>
@@ -165,12 +165,12 @@ function App() {
             <div className="group flex flex-col cursor-none">
               <div className="aspect-[4/3] bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] dark:from-[#212529]/60 dark:to-[#1a1d20]/80 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
                 <div className="absolute text-center flex items-center justify-center w-full h-full text-slate-400 dark:text-slate-600 transition-colors duration-500">
-                    <span className="font-serif italic text-lg opacity-40">Aucun aperçu disponible</span>
+                  <span className="font-serif italic text-lg opacity-40">Aucun aperçu disponible</span>
                 </div>
                 <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
                 <div className="absolute top-5 left-5 flex gap-2">
-                    <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">React</span>
-                    <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Stripe</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">React</span>
+                  <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Stripe</span>
                 </div>
               </div>
               <span className="text-indie-muted text-[11px] tracking-[0.1em] font-medium uppercase mb-2">03 — Plateforme Web</span>
@@ -183,7 +183,7 @@ function App() {
             {/* Project 4 */}
             <div className="group flex flex-col md:mt-16 opacity-60 hover:opacity-100 transition-opacity duration-700 cursor-none">
               <div className="aspect-[4/3] border border-dashed border-indie-muted/40 rounded-3xl mb-6 flex items-center justify-center bg-transparent transition-colors duration-500">
-                 <span className="text-[10px] tracking-widest uppercase text-indie-muted">En développement</span>
+                <span className="text-[10px] tracking-widest uppercase text-indie-muted">En développement</span>
               </div>
               <span className="text-indie-muted text-[11px] tracking-[0.1em] font-medium uppercase mb-2">04 — Cybersécurité</span>
               <h3 className="text-xl font-serif text-indie-text mb-2 transition-colors duration-500">Audits & Infra</h3>
