@@ -1,4 +1,4 @@
-# 🚀 Ilyace KADRI - Professional Portfolio
+# 🚀 My Professional Portfolio
 
 Welcome to my personal portfolio project! This is a modern, responsive, and highly aesthetic website designed to showcase my skills, projects, and professional background.
 
@@ -76,4 +76,4 @@ If you want to put this portfolio online, here are the easiest and most professi
 
 ---
 
-*This portfolio was crafted with ❤️ by [Ilyace KADRI](https://github.com/IKadri-droid).*
+*This portfolio was crafted with ❤️.*
