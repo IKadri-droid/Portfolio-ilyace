@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-indie-bg: #FCFCFC;
+  --color-indie-surface: #FFFFFF;
+  --color-indie-primary: #6B9080;
+  --color-indie-secondary: #A4C3B2;
+  --color-indie-accent: #E5989B;
+  --color-indie-text: #2B2D42;
+  --color-indie-muted: #6B7280; /* Darkened slightly for day mode contrast */
+  --color-indie-glass-border: rgba(255, 255, 255, 0.5);
+}
+
+.dark {
+  --color-indie-bg: #0d0f12;
+  --color-indie-surface: #15171c;
+  --color-indie-primary: #A4D4BC;  /* Brighter, more visible pastel green */
+  --color-indie-secondary: #8EBAA5;
+  --color-indie-accent: #FCAEBB;
+  --color-indie-text: #FFFFFF; /* Pure white instead of greyish for better contrast */
+  --color-indie-muted: #9CA3AF; /* Brighter muted text */
+  --color-indie-glass-border: rgba(255, 255, 255, 0.12); /* More visible glass borders */
+}
+
+* {
+    font-family: 'Outfit', sans-serif;
+    cursor: none !important;
+}
+
+.font-serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Base adjustment for all text to make handwriting / fonts slightly larger in general */
+html {
+    scroll-behavior: smooth;
+    transition: background-color 0.8s ease, color 0.8s ease;
+    font-size: 104%; /* Slightly boosts rem-based tailwind font sizes globally */
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-indie-muted);
+    border-radius: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+section {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+section.animate-fade-in {
+    opacity: 1;
+}
+
+.custom-cursor {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    background-color: #FFF;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    z-index: 99999;
+    will-change: transform;
+}
