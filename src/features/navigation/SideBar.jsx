@@ -6,18 +6,18 @@ const SideBar = ({ activeSection }) => (
     <div className="w-px h-6 bg-gradient-to-b from-transparent via-indie-muted/30 to-transparent" />
     <div className="flex flex-col gap-6">
       {[
-        { id: 'hero', icon: Shield },
-        { id: 'stack', icon: Settings },
-        { id: 'cv', icon: Briefcase },
-        { id: 'projects', icon: FileText },
-        { id: 'contact', icon: Send }
+        { id: 'hero', label: 'profil', icon: Shield },
+        { id: 'stack', label: 'stack', icon: Settings },
+        { id: 'cv', label: 'cv', icon: Briefcase },
+        { id: 'projects', label: 'projets', icon: FileText },
+        { id: 'contact', label: 'contact', icon: Send }
       ].map((item) => (
         <a key={item.id} href={`#${item.id}`} className="relative group/icon flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-300">
           <div className={`absolute inset-0 rounded-lg bg-indie-text/5 dark:bg-indie-text/10 transition-all ${activeSection === item.id ? 'scale-100' : 'scale-0 group-hover/icon:scale-100'}`} />
           <item.icon className={`w-[18px] h-[18px] relative z-10 transition-all duration-500 ${activeSection === item.id ? 'text-indie-primary' : 'text-indie-muted group-hover/icon:text-indie-text'}`} />
           
           <span className="absolute left-10 px-2 py-1 bg-indie-text text-indie-bg text-[18px] tracking-widest uppercase rounded opacity-0 -translate-x-3 group-hover/icon:opacity-100 group-hover/icon:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-sm">
-            {item.id}
+            {item.label}
           </span>
         </a>
       ))}
