@@ -10,6 +10,11 @@ import Experience from "./features/cv/Experience";
 import { translations } from "./translations";
 import './index.css';
 
+import groupieImg from './assets/groupie.png';
+import discordImg from './assets/discord_bot.png';
+import puissance4Img from './assets/puissance4.png';
+import pocketLeafImg from './assets/pocket_leaf.png';
+
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [visibleSections, setVisibleSections] = useState(new Set());
@@ -18,6 +23,23 @@ function App() {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const langRef = useRef(null);
   const cursorRef = useRef(null);
+  const [selectedPresentation, setSelectedPresentation] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const openPresentation = (url) => {
+    setSelectedPresentation(url);
+    setIsClosing(false);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePresentation = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setSelectedPresentation(null);
+      setIsClosing(false);
+      document.body.style.overflow = 'unset';
+    }, 400); // Duration matches animation-out
+  };
 
   const T = translations[lang];
 
@@ -196,9 +218,18 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
             {/* Project 1 - Groupie Tracker */}
-            <div className="group flex flex-col cursor-none">
+            <div className="group flex flex-col cursor-none" onClick={() => openPresentation('/presentations/groupie/index.html')}>
               <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800/40 dark:to-slate-900/60 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
-                <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
+                <img src={groupieImg} alt="Groupie Tracker" className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-700" />
+
+                {/* Visual Hint on Hover */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100">
+                  <div className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl">
+                    {lang === 'ar' ? 'عرض' : lang === 'en' ? 'VIEW' : lang === 'es' ? 'VER' : 'VOIR'}
+                  </div>
+                </div>
+
                 <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
                   <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Golang</span>
                   <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Stripe</span>
@@ -216,7 +247,16 @@ function App() {
             {/* Project 2 - Discord Bot */}
             <div className="group flex flex-col md:mt-16 cursor-none">
               <div className="aspect-[4/3] bg-gradient-to-br from-[#E2E8F0] to-[#F1F5F9] dark:from-[#1E293B]/60 dark:to-[#0F172A]/80 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
-                <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
+                <img src={discordImg} alt="Discord Bot" className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-700" />
+
+                {/* Visual Hint on Hover */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100">
+                  <div className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl">
+                    {lang === 'ar' ? 'عرض' : lang === 'en' ? 'VIEW' : lang === 'es' ? 'VER' : 'VOIR'}
+                  </div>
+                </div>
+
                 <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
                   <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">TypeScript</span>
                   <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Node.js</span>
@@ -232,9 +272,18 @@ function App() {
             </div>
 
             {/* Project 3 - Puissance 4 */}
-            <div className="group flex flex-col cursor-none">
+            <div className="group flex flex-col cursor-none" onClick={() => openPresentation('/presentations/puissance4/index.html')}>
               <div className="aspect-[4/3] bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] dark:from-[#212529]/60 dark:to-[#1a1d20]/80 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
-                <div className="absolute inset-0 bg-indie-bg/5 group-hover:bg-transparent transition-colors duration-700" />
+                <img src={puissance4Img} alt="Puissance 4" className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-700" />
+
+                {/* Visual Hint on Hover */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100">
+                  <div className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl">
+                    {lang === 'ar' ? 'عرض' : lang === 'en' ? 'VIEW' : lang === 'es' ? 'VER' : 'VOIR'}
+                  </div>
+                </div>
+
                 <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
                   <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">Golang</span>
                   <span className="px-3 py-1.5 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text transition-colors duration-500 font-medium">WebSockets</span>
@@ -250,10 +299,22 @@ function App() {
 
             {/* Project 4 - Pocket Leaf */}
             <div className="group flex flex-col md:mt-16 cursor-none">
-              <div className="aspect-[4/3] border border-dashed border-indie-muted/40 rounded-3xl mb-6 flex items-center justify-center bg-transparent transition-colors duration-500 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-[10px] tracking-widest uppercase text-indie-muted">{T.projects.p4_status}</span>
+              <div className="aspect-[4/3] border border-indie-muted/20 dark:border-white/10 rounded-3xl mb-6 flex items-center justify-center bg-transparent transition-all duration-500 relative overflow-hidden group-hover:shadow-ethereal-hover">
+                <img src={pocketLeafImg} alt="Pocket Leaf" className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100" />
+
+                {/* Progress Overlay */}
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center group-hover:bg-black/20 group-hover:backdrop-blur-none transition-all duration-700">
+                  <div className="px-5 py-2.5 bg-white/10 backdrop-blur-xl border border-white/30 rounded-full shadow-2xl transition-all duration-500 group-hover:scale-90 group-hover:opacity-0">
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-white font-bold">{T.projects.p4_status}</span>
+                  </div>
+                  {/* Hover Hint */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100">
+                    <div className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl">
+                      {lang === 'ar' ? 'عرض' : lang === 'en' ? 'VIEW' : lang === 'es' ? 'VER' : 'VOIR'}
+                    </div>
+                  </div>
                 </div>
+
                 <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
                   <span className="px-3 py-1.5 bg-white/30 dark:bg-black/20 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text font-medium">React Native</span>
                   <span className="px-3 py-1.5 bg-white/30 dark:bg-black/20 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-indie-text font-medium">Node.js</span>
@@ -271,6 +332,34 @@ function App() {
 
         <Contact t={T.contact} className={`transition-all duration-1000 ${visibleSections.has('contact') ? 'animate-fade-in' : 'opacity-0'}`} />
       </main>
+
+      {/* Presentation Modal */}
+      {selectedPresentation && (
+        <div className={`fixed inset-0 z-[300] flex items-center justify-center p-4 md:p-10 transition-all duration-500`}>
+          {/* Transparent Blurred Background */}
+          <div
+            className={`absolute inset-0 backdrop-blur-3xl transition-opacity duration-500 ${isClosing ? 'opacity-0' : 'opacity-100'} ${isDarkMode ? 'bg-black/20' : 'bg-white/10'}`}
+            onClick={closePresentation}
+          />
+
+          <div className={`relative w-full h-full max-w-6xl bg-white/5 dark:bg-black/5 rounded-3xl overflow-hidden border border-white/20 dark:border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.1)] flex flex-col transition-all duration-500 ${isClosing ? 'opacity-0 scale-95 blur-md' : 'opacity-100 scale-100 blur-0 animate-modal-pop'}`}>
+            <div className="absolute top-6 right-6 z-20">
+              <button
+                onClick={closePresentation}
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 dark:bg-black/20 dark:hover:bg-black/30 backdrop-blur-xl border border-white/30 dark:border-white/10 flex items-center justify-center text-indie-text dark:text-white transition-all hover:scale-110 active:scale-90"
+              >
+                <span className="text-xl">✕</span>
+              </button>
+            </div>
+
+            <iframe
+              src={selectedPresentation}
+              className="w-full h-full border-none relative z-10"
+              title="Project Presentation"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
