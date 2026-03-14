@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie Tracker - عرض تقديمي</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        a,
+        li {
+            font-family: 'Amiri', serif, 'Outfit', sans-serif;
+        }
+
+        .quick-nav {
+            left: 20px;
+            right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="quick-nav">
+        <a href="#hero" title="مقدمة">●</a>
+        <a href="#concept" title="المفهوم">●</a>
+        <a href="#bmc" title="نموذج العمل">●</a>
+        <a href="#features" title="المميزات">●</a>
+        <a href="#transition" title="الانتقال التقني">●</a>
+        <a href="#stack-overview" title="المكونات التقنية">●</a>
+        <a href="#frontend" title="الواجهة الأمامية">●</a>
+        <a href="#backend" title="الواجهة الخلفية">●</a>
+        <a href="#infra" title="البنية التحتية">●</a>
+        <a href="#conclusion" title="الخاتمة">●</a>
+    </nav>
+
+    <main class="slides-container">
+
+        <!-- 1. HERO -->
+        <section id="hero" class="slide hero-slide">
+            <div class="content-wrapper">
+                <h1 class="glitch-text" data-text="GROUPIE TRACKER">GROUPIE TRACKER</h1>
+                <p class="hero-subtitle">التجربة المثالية لعشاق الموسيقى الحية.</p>
+                <div class="narrative-text">
+                    <p>تخيل... أنك تحب فناناً...</p>
+                    <p>لكن تتبع جولاته ومواعيده وأماكن حفلاته معركة شاقة.</p>
+                    <p><strong>Groupie Tracker</strong> هي المنصة التي تجمع كل شيء.</p>
+                </div>
+                <a href="#concept" class="cta-button">اكتشف المشروع</a>
+            </div>
+            <div class="background-glow"></div>
+        </section>
+
+        <!-- 2. CONCEPT & VISION -->
+        <section id="concept" class="slide concept-slide">
+            <div class="content-wrapper">
+                <h2>المفهوم والرؤية</h2>
+                <div class="concept-grid">
+                    <div class="card glass">
+                        <h3>🎯 لمن هذا؟</h3>
+                        <p>المعجبون المخلصون، مرتادو الحفلات، أولئك الذين يعيشون من أجل الموسيقى ولا يريدون تفويت أي
+                            موعد.</p>
+                    </div>
+                    <div class="card glass">
+                        <h3>⚠️ المشكلة</h3>
+                        <p>المعلومات مشتتة بين المواقع الرسمية، مكاتب التذاكر، وسائل التواصل الاجتماعي... تتبع جولة
+                            كاملة أمر فوضوي.</p>
+                    </div>
+                    <div class="card glass highlight">
+                        <h3>💡 حل Groupie Tracker</h3>
+                        <p>واجهة فريدة وغامرة ومرئية لاستكشاف الفنانين وتحديد مواقع الحفلات ومعرفة كل شيء بنقرة واحدة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. BUSINESS MODEL CANVAS -->
+        <section id="bmc" class="slide bmc-slide">
+            <div class="content-wrapper">
+                <h2>نموذج العمل (BMC)</h2>
+                <div class="canvas-grid">
+                    <div class="cell kp glass">
+                        <h3>الشركاء الرئيسيون 🤝</h3>
+                        <ul>
+                            <li>منظمو الحفلات</li>
+                            <li>شركات الإنتاج الموسيقي</li>
+                            <li>منصات التذاكر (Ticketmaster...)</li>
+                            <li>خدمات البث (Deezer)</li>
+                        </ul>
+                    </div>
+                    <div class="cell ka glass">
+                        <h3>الأنشطة الرئيسية ⚙️</h3>
+                        <ul>
+                            <li>تجميع البيانات عبر API</li>
+                            <li>تطوير المنصة</li>
+                            <li>الصيانة و UX/UI</li>
+                            <li>الشراكات</li>
+                        </ul>
+                    </div>
+                    <div class="cell kr glass">
+                        <h3>الموارد الرئيسية 💎</h3>
+                        <ul>
+                            <li>Groupie Tracker API</li>
+                            <li>قاعدة بيانات الفنانين</li>
+                            <li>البنية التحتية السحابية</li>
+                            <li>فريق التطوير</li>
+                        </ul>
+                    </div>
+                    <div class="cell vp glass highlight-cell">
+                        <h3>قيم المشروع 🎁</h3>
+                        <ul>
+                            <li><strong>الكل في واحد:</strong> المواعيد، الأماكن، المعلومات.</li>
+                            <li><strong>مرئي:</strong> كرة أرضية تفاعلية ثلاثية الأبعاد.</li>
+                            <li><strong>البساطة:</strong> واجهة تركز على المعجبين.</li>
+                            <li><strong>الموثوقية:</strong> بيانات محدثة.</li>
+                        </ul>
+                    </div>
+                    <div class="cell cr glass">
+                        <h3>العلاقة مع العملاء ❤️</h3>
+                        <ul>
+                            <li>مجتمع نشط</li>
+                            <li>نظام المفضلة</li>
+                            <li>دعم المستخدمين</li>
+                            <li>نشرات بريدية مخصصة</li>
+                        </ul>
+                    </div>
+                    <div class="cell ch glass">
+                        <h3>القنوات 📢</h3>
+                        <ul>
+                            <li>الموقع الإلكتروني (PWA)</li>
+                            <li>وسائل التواصل الاجتماعي</li>
+                            <li>تحسين محركات البحث / مدونة موسيقى</li>
+                            <li>الشراكة مع المؤثرين</li>
+                        </ul>
+                    </div>
+                    <div class="cell cs glass">
+                        <h3>شرائح العملاء 👥</h3>
+                        <ul>
+                            <li>عشاق الموسيقى (15-45 سنة)</li>
+                            <li>المسافرون / السياح</li>
+                            <li>المحترفون في الصناعة</li>
+                        </ul>
+                    </div>
+                    <div class="cell cost glass">
+                        <h3>هيكل التكاليف 💸</h3>
+                        <ul>
+                            <li>الاستضافة والخوادم</li>
+                            <li>التطوير والصيانة</li>
+                            <li>التسويق والإعلان</li>
+                        </ul>
+                    </div>
+                    <div class="cell rev glass">
+                        <h3>مصادر الدخل 💰</h3>
+                        <ul>
+                            <li>عمولات التذاكر (التسويق بالعمولة)</li>
+                            <li>الإعلانات الموجهة</li>
+                            <li>الاشتراك المميز (تنبيهات VIP)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FEATURES -->
+        <section id="features" class="slide features-slide">
+            <div class="content-wrapper">
+                <h2>تجربة المستخدم</h2>
+                <div class="features-scroll">
+                    <article class="feature-card glass">
+                        <div class="icon">🎸</div>
+                        <h3>كتالوج غامر</h3>
+                        <p>استكشف آلاف الفنانين بواجهة سلسة ومرئية.</p>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="icon">🌍</div>
+                        <h3>كرة أرضية تفاعلية</h3>
+                        <p>شاهد الجولات العالمية على كرة أرضية ثلاثية الأبعاد. انقر، دور، اكتشف.</p>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="icon">🎟️</div>
+                        <h3>تفاصيل الحفلات</h3>
+                        <p>تفاصيل دقيقة: الأماكن، المواعيد، روابط الحجز المباشر.</p>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="icon">💳</div>
+                        <h3>دفع آمن</h3>
+                        <p>تكامل مع Stripe لتجربة حجز سلسة.</p>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="icon">⭐</div>
+                        <h3>مساحة شخصية</h3>
+                        <p>إدارة المفضلة، سجل المشاهدة وتلقي التنبيهات.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TRANSITION -->
+        <section id="transition" class="slide transition-slide">
+            <div class="content-wrapper centered">
+                <h2>خلف الكواليس...</h2>
+                <p>الآن وقد رأينا المنتج،</p>
+                <p class="big-text">كيف قمنا ببنائه؟</p>
+                <div class="scroll-indicator">↓</div>
+            </div>
+        </section>
+
+        <!-- 6. TECH STACK -->
+        <section id="stack-overview" class="slide stack-slide">
+            <div class="content-wrapper">
+                <h2>البنية التقنية العالمية</h2>
+                <div class="canvas-grid stack-specific">
+                    <div class="cell kp glass orange">
+                        <h3>API خارجي 🔗</h3>
+                        <ul>
+                            <li><strong>Deezer API</strong><br><small>البحث، الصور، الألبومات</small></li>
+                            <li><strong>Groupie API</strong><br><small>بيانات الفنانين والحفلات</small></li>
+                        </ul>
+                    </div>
+                    <div class="cell ka glass blue">
+                        <h3>منطق الواجهة الخلفية 🧠</h3>
+                        <ul>
+                            <li><strong>Go (Golang)</strong></li>
+                            <li>خادم HTTP قياسي</li>
+                            <li>بنية برمجية معيارية</li>
+                            <li>إدارة الأخطاء</li>
+                        </ul>
+                    </div>
+                    <div class="cell kr glass blue">
+                        <h3>تخزين البيانات 💾</h3>
+                        <ul>
+                            <li><strong>PostgreSQL</strong></li>
+                            <li>علاقات الجولات والفنانين</li>
+                            <li>تخزين بيانات المستخدمين</li>
+                        </ul>
+                    </div>
+                    <div class="cell vp glass purple highlight-cell">
+                        <h3>قلب التطبيق 💖</h3>
+                        <ul>
+                            <li><strong>React 19 SPA</strong></li>
+                            <li>الأداء (Vite)</li>
+                            <li>التنقل السلس</li>
+                            <li>إدارة الحالة (Zustand)</li>
+                        </ul>
+                    </div>
+                    <div class="cell cr glass red">
+                        <h3>الأمن والهوية 🛡️</h3>
+                        <ul>
+                            <li><strong>JWT (JSON Web Tokens)</strong></li>
+                            <li>حماية المسارات</li>
+                            <li>تشفير كلمات المرور</li>
+                        </ul>
+                    </div>
+                    <div class="cell ch glass green">
+                        <h3>المدفوعات 💵</h3>
+                        <ul>
+                            <li><strong>تكامل Stripe</strong></li>
+                            <li>Webhooks آمنة</li>
+                            <li>إدارة الطلبات</li>
+                        </ul>
+                    </div>
+                    <div class="cell cs glass purple">
+                        <h3>واجهة المستخدم 🎨</h3>
+                        <ul>
+                            <li><strong>Tailwind CSS v4</strong></li>
+                            <li><strong>Framer Motion</strong></li>
+                            <li><strong>Three.js / Globe</strong></li>
+                        </ul>
+                    </div>
+                    <div class="cell cost glass gray">
+                        <h3>البنية التحتية 🏗️</h3>
+                        <ul>
+                            <li><strong>Docker</strong> (الحاويات)</li>
+                            <li><strong>Docker Compose</strong></li>
+                        </ul>
+                    </div>
+                    <div class="cell rev glass gray">
+                        <h3>النشر 🚀</h3>
+                        <ul>
+                            <li>CI/CD (Github Actions)</li>
+                            <li>خادم Linux / VPS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FRONTEND -->
+        <section id="frontend" class="slide detail-slide">
+            <div class="content-wrapper">
+                <h2>نظرة على الواجهة الأمامية 🎨</h2>
+                <div class="tech-list">
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge react">React 19 + Vite</span>
+                        </div>
+                        <p class="simple">🟢 محرك تطبيق سريع وحديث.</p>
+                        <p class="advanced">🔵 استخدام أحدث الـ Hooks وبناء محسن.</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge ts">TypeScript</span>
+                        </div>
+                        <p class="simple">🟢 كود آمن وأخطاء أقل.</p>
+                        <p class="advanced">🔵 تعريف صارم لبيانات الـ API.</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge state">Zustand + TanStack Query</span>
+                        </div>
+                        <p class="simple">🟢 إدارة بيانات سلسة.</p>
+                        <p class="advanced">🔵 تخزين مؤقت للبيانات وحالة عالمية خفيفة.</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge ui">Tailwind v4 + Framer Motion</span>
+                        </div>
+                        <p class="simple">🟢 تصميم رائع ورسوم متحركة.</p>
+                        <p class="advanced">🔵 مجمع JIT ورسوم متحركة معقدة.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. BACKEND -->
+        <section id="backend" class="slide detail-slide">
+            <div class="content-wrapper">
+                <h2>نظرة على الواجهة الخلفية ⚙️</h2>
+                <div class="tech-list">
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge go">Go (Golang)</span>
+                        </div>
+                        <p class="simple">🟢 لغة عالية الأداء وقوية.</p>
+                        <p class="advanced">🔵 ميزة التزامن الأصيلة (Goroutines).</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge db">PostgreSQL</span>
+                        </div>
+                        <p class="simple">🟢 قاعدة بيانات موثوقة.</p>
+                        <p class="advanced">🔵 تكامل البيانات وتوافق ACID.</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge api">Deezer API</span>
+                        </div>
+                        <p class="simple">🟢 لماذا Deezer؟ لأنها أكثر انفتاحاً من Spotify.</p>
+                        <p class="advanced">🔵 واجهة برمجية عامة سهلة الوصول.</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge sec">الأمن (JWT)</span>
+                        </div>
+                        <p class="simple">🟢 تسجيل دخول آمن.</p>
+                        <p class="advanced">🔵 رموز Stateless و Middleware للهوية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. INFRA -->
+        <section id="infra" class="slide infra-slide">
+            <div class="content-wrapper">
+                <h2>البنية التحتية والنشر 📦</h2>
+                <div class="infra-diagram glass">
+                    <div class="box docker">Docker Compose</div>
+                    <div class="arrows">
+                        <span>⬇️</span>
+                        <span>⬇️</span>
+                    </div>
+                    <div class="services">
+                        <div class="service frontend">الواجهة الأمامية <br> :80 / :5173</div>
+                        <div class="service backend">الواجهة الخلفية <br> :8080</div>
+                        <div class="service db">قاعدة البيانات <br> :5432</div>
+                    </div>
+                </div>
+                <div class="infra-desc">
+                    <p>كل خدمة معزولة في حاويتها الخاصة. النشر قابل لإعادة الإنتاج بشكل متماثل على أي جهاز.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CONCLUSION -->
+        <section id="conclusion" class="slide conclusion-slide">
+            <div class="content-wrapper centered">
+                <h2>باختصار</h2>
+                <p class="big-text">تقنيات حديثة. تجربة غامرة.</p>
+                <div class="stack-icons">
+                    <span>🔥 React</span>
+                    <span>🚀 Go</span>
+                    <span>🐳 Docker</span>
+                    <span>🎨 Tailwind</span>
+                </div>
+                <p class="thank-you">شكراً لحسن استماعكم!</p>
+                <a href="#hero" class="restart-link">إعادة العرض</a>
+            </div>
+            <footer>
+                <p>&copy; 2026 فريق Groupie Tracker - مشروع Ynov Campus</p>
+            </footer>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

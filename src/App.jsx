@@ -218,7 +218,7 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
             {/* Project 1 - Groupie Tracker */}
-            <div className="group flex flex-col cursor-none" onClick={() => openPresentation('/presentations/groupie/index.html')}>
+            <div className="group flex flex-col cursor-none" onClick={() => openPresentation(`/presentations/groupie/index${lang === 'fr' ? '' : '_' + lang}.html`)}>
               <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800/40 dark:to-slate-900/60 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
                 <img src={groupieImg} alt="Groupie Tracker" className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-700" />
@@ -272,7 +272,7 @@ function App() {
             </div>
 
             {/* Project 3 - Puissance 4 */}
-            <div className="group flex flex-col cursor-none" onClick={() => openPresentation('/presentations/puissance4/index.html')}>
+            <div className="group flex flex-col cursor-none" onClick={() => openPresentation(`/presentations/puissance4/index${lang === 'fr' ? '' : '_' + lang}.html`)}>
               <div className="aspect-[4/3] bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] dark:from-[#212529]/60 dark:to-[#1a1d20]/80 rounded-3xl mb-6 overflow-hidden relative shadow-ethereal border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-ethereal-hover">
                 <img src={puissance4Img} alt="Puissance 4" className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-700" />

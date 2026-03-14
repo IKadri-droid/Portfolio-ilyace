@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض تقديمي لمملكة البكسل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background: #1a1a1a;
+            overflow: hidden;
+        }
+
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+            color: #f4e4c1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .slide-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-shadow: 3px 3px 0 #8b4513, 5px 5px 0 rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #f39c12;
+            margin: 20px 0 10px 0;
+        }
+
+        p,
+        li {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #c9a961;
+        }
+
+        ul {
+            list-style: none;
+            padding-right: 20px;
+        }
+
+        li::before {
+            content: "⚔️ ";
+            margin-left: 10px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+            flex-direction: row-reverse;
+        }
+
+        button {
+            background: linear-gradient(135deg, #8e44ad, #6c3483);
+            border: 3px solid #ffd700;
+            color: #fff;
+            padding: 12px 30px;
+            font-family: 'Amiri', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .slide-number {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 215, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: #ffd700;
+            z-index: 100;
+        }
+
+        .box {
+            background: rgba(40, 40, 40, 0.6);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #f39c12;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60, #229954);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 5px;
+            border: 2px solid #1e8449;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="presentation">
+        <div class="slide-number" id="slideNumber">شريحة 1 / 13</div>
+
+        <!-- SLIDE 1: COVER PAGE -->
+        <div class="slide active">
+            <div class="slide-content center">
+                <div class="icon">⚔️🏰⚔️</div>
+                <h1 style="font-size: 3rem;">مملكة البكسل</h1>
+                <h2>لعبة 4 على التوالي (Medieval)</h2>
+                <p class="subtitle">لعبة عبر الإنترنت تم تطويرها باستخدام Go و WebSocket</p>
+                <div style="margin-top: 50px;">
+                    <p>بواسطة: [إلياس وإنزو]</p>
+                    <p>التاريخ: يناير 2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: SUMMARY -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📑 الفهرس</h1>
+                <div class="box">
+                    <ul style="font-size: 1.2rem;">
+                        <li>عرض المشروع</li>
+                        <li>الجمهور المستهدف</li>
+                        <li>القصة</li>
+                        <li>القوانين</li>
+                        <li>المكونات التقنية</li>
+                        <li>الأدوات والأساليب</li>
+                        <li>الصعوبات التي واجهتنا</li>
+                        <li>التوقعات المستقبلية</li>
+                        <li>المصادر</li>
+                        <li>الخاتمة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: PRESENTATION -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎮 عرض المشروع</h1>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">
+                    مملكة البكسل هي نسخة حديثة من اللعبة الكلاسيكية<br>
+                    Connect 4، مغمورة في عالم العصور الوسطى بفن البكسل.
+                </p>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🎯 الأهداف</h3>
+                        <ul>
+                            <li>تطبيق ويب تفاعلي</li>
+                            <li>تواصل في الوقت الفعلي</li>
+                            <li>تجربة غامرة</li>
+                            <li>إمكانية التخصيص</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>✨ نقاط القوة</h3>
+                        <ul>
+                            <li>واجهة بكسل فريدة</li>
+                            <li>موسيقى محيطية</li>
+                            <li>ثيمات قابلة للتخصيص</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: AUDIENCE -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>👥 الجمهور المستهدف</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🎮 اللاعبون العاديون</h3>
+                        <ul>
+                            <li>لعبة سريعة وسهلة الوصول</li>
+                            <li>عشاق ألعاب الألغاز</li>
+                            <li>الحنين للعبة Connect 4</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🏰 محبي فن البكسل</h3>
+                        <ul>
+                            <li>عشاق عوالم العصور الوسطى</li>
+                            <li>المهتمون بالألعاب الكلاسيكية</li>
+                            <li>محبي التصميم القديم</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box" style="margin-top: 20px;">
+                    <h3 class="center">👨‍👩‍👧‍👦 للجميع</h3>
+                    <p class="center">العمر: 3 سنوات فما فوق - مباريات سريعة (5-10 دقائق)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: STORY -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📖 القصة</h1>
+                <div class="box">
+                    <h3>🏰 السياق</h3>
+                    <p>في أراضي مملكة البكسل البعيدة، يتقاتل لوردان متنافسان من أجل السيطرة: الفارس الأحمر والبالادين
+                        الأصفر.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🔴 الفارس الأحمر</h3>
+                        <p>جريء واستراتيجي<br>سيد الهجوم</p>
+                    </div>
+                    <div class="box">
+                        <h3>🟡 البالادين الأصفر</h3>
+                        <p>حكيم ومخطط<br>خبير الدفاع</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <p class="center">⚔️ من يحاذي 4 رايات (قطع) في شبكة القدر العظمى يصبح الحاكم الشرعي!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: RULES -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎲 القواعد</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>⚡ المبدأ</h3>
+                        <ul>
+                            <li>لاعبان يتنافسان</li>
+                            <li>شبكة 6×7</li>
+                            <li>الأحمر يبدأ</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎯 الهدف</h3>
+                        <ul>
+                            <li>النجاح في محاذاة 4 قطع في أي اتجاه:
+                                أفقي، عمودي أو قطري.
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="center">🎮 طريقة اللعب</h3>
+                    <p>1. انقر على العمود ← 2. تسقط القطعة ← 3. ينتهي الدور ← 4. كرر</p>
+                </div>
+                <div class="box">
+                    <p class="center"><span class="highlight">🏆 4 قطع محاذية = النصر!</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: TECH STACK -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>💻 المكونات التقنية</h1>
+                <div class="tech-stack">
+                    <span class="badge">Go 1.21+</span>
+                    <span class="badge">Gorilla WebSocket</span>
+                    <span class="badge">HTML5</span>
+                    <span class="badge">CSS3</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">LocalStorage</span>
+                    <span class="badge">Claude</span>
+                    <span class="badge">Youtube</span>
+                    <span class="badge">Github</span>
+                    <span class="badge">Golang.com</span>
+                    <span class="badge">Discord</span>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🔧 الواجهة الخلفية</h3>
+                        <ul>
+                            <li>خادم Golang</li>
+                            <li>WebSocket</li>
+                            <li>منطق اللعبة</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎨 الواجهة الأمامية</h3>
+                        <ul>
+                            <li>تصميم بكسل آرت</li>
+                            <li>رسوم متحركة سلسة</li>
+                            <li>تصميم متجاوب</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: CHALLENGES -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🚧 الصعوبات التي واجهتنا</h1>
+                <div class="box">
+                    <h3>🔴 تقنية</h3>
+                    <ul>
+                        <li>الـ WebSocket والمزامنة</li>
+                        <li>رسوم سقوط القطع</li>
+                        <li>استمرارية الموسيقى</li>
+                    </ul>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🟡 التصميم</h3>
+                        <ul>
+                            <li>الاتساق البصري</li>
+                            <li>التصميم المتجاوب</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🟢 التنظيم</h3>
+                        <ul>
+                            <li>هيكلة الكود</li>
+                            <li>Cookies vs LocalStorage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: FUTURE -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🚀 التوقعات المستقبلية</h1>
+                <div class="box">
+                    <h3>✨ المدى القريب (1-3 أشهر)</h3>
+                    <ul>
+                        <li>وضع اللعب المتعدد عبر الإنترنت</li>
+                        <li>ذكاء اصطناعي للعب الفردي</li>
+                        <li>نظام نقاط وترتيب</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>🏆 المدى المتوسط (3-6 أشهر)</h3>
+                    <ul>
+                        <li>حسابات مستخدمين</li>
+                        <li>بطولات عبر الإنترنت</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>🎨 المدى البعيد (6-12 شهر)</h3>
+                    <ul>
+                        <li>المزيد من الثيمات (فضاء، محيط)</li>
+                        <li>نسخة للهواتف المحمولة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: SOURCES -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📚 المصادر</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>📖 التوثيق</h3>
+                        <ul>
+                            <li>Go Documentation</li>
+                            <li>Gorilla WebSocket</li>
+                            <li>MDN Web Docs</li>
+                            <li>Discord / Youtube</li>
+                            <li>Google</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎨 الأصول</h3>
+                        <ul>
+                            <li>Google Fonts</li>
+                            <li>Unsplash / Pexels</li>
+                            <li>Freesound.org</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="center">💡 الإلهام</h3>
+                    <p class="center">Stardew Valley • Undertale • Celeste • Indie MMORPG</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: CONCLUSION -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎯 الخاتمة</h1>
+                <div class="box">
+                    <h3>✅ الأهداف المحققة</h3>
+                    <ul>
+                        <li>إتقان Go و WebSockets</li>
+                        <li>تطبيق ويب كامل</li>
+                        <li>مهارات تصميم CSS</li>
+                        <li>بنية التواصل الفوري</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3 class="center">📊 التقرير</h3>
+                    <p class="center">
+                        <span class="highlight">+150 ساعة عمل</span> •
+                        <span class="highlight">1500+ سطر كود</span>
+                        <li>على الرغم من الصعوبات ونقص المعلومات، تمكنا من التغلب على العقبات وتقديم تجربة مستخدم رائعة.
+                        </li>
+                    </p>
+                </div>
+                <p class="center highlight" style="font-size: 1.2rem; margin-top: 30px;">
+                    🚀 وهذه مجرد البداية!
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: DEMO -->
+        <div class="slide">
+            <div class="slide-content center">
+                <h1>🎬 تجربة اللعبة</h1>
+                <div class="icon" style="font-size: 5rem;">🎮</div>
+                <p class="subtitle">رابط اللعبة</p>
+                <div class="box">
+                    <p style="font-size: 1.2rem; color: #ffd700;">http://localhost:8080</p>
+                </div>
+                <h2 style="margin-top: 60px;">🙏 شكراً لكم!</h2>
+                <p>هل لديكم أي أسئلة؟ 🤔</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">◀ السابق</button>
+        <button id="nextBtn">التالي ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideNumber = document.getElementById('slideNumber');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            slideNumber.textContent = `شريحة ${currentSlide + 1} / ${totalSlides}`;
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+            if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
+        });
+        showSlide(0);
+    </script>
+</body>
+
+</html>

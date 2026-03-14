@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Kingdom Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: #1a1a1a;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+            color: #f4e4c1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .slide-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-shadow: 3px 3px 0 #8b4513, 5px 5px 0 rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #f39c12;
+            margin: 20px 0 10px 0;
+        }
+
+        p,
+        li {
+            font-size: 0.7rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #c9a961;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "⚔️ ";
+            margin-right: 10px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        button {
+            background: linear-gradient(135deg, #8e44ad, #6c3483);
+            border: 3px solid #ffd700;
+            color: #fff;
+            padding: 12px 30px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .slide-number {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 215, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: #ffd700;
+            z-index: 100;
+        }
+
+        .box {
+            background: rgba(40, 40, 40, 0.6);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #f39c12;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60, #229954);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            margin: 5px;
+            border: 2px solid #1e8449;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="presentation">
+        <div class="slide-number" id="slideNumber">Slide 1 / 13</div>
+
+        <!-- SLIDE 1: COVER PAGE -->
+        <div class="slide active">
+            <div class="slide-content center">
+                <div class="icon">⚔️🏰⚔️</div>
+                <h1 style="font-size: 3rem;">PIXEL KINGDOM</h1>
+                <h2>Medieval Connect 4</h2>
+                <p class="subtitle">An online game developed in Go and WebSocket</p>
+                <div style="margin-top: 50px;">
+                    <p>By: [Ilyace and Enzo]</p>
+                    <p>Date: January 2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: SUMMARY -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📑 SUMMARY</h1>
+                <div class="box">
+                    <ul style="font-size: 0.8rem;">
+                        <li>Project presentation</li>
+                        <li>Target audience</li>
+                        <li>The story</li>
+                        <li>The rules</li>
+                        <li>Technical stack</li>
+                        <li>Tools & Methods</li>
+                        <li>Challenges encountered</li>
+                        <li>Future projection</li>
+                        <li>Sources</li>
+                        <li>Conclusion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: PRESENTATION -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎮 PRESENTATION</h1>
+                <p style="text-align: center; font-size: 0.8rem; margin-bottom: 30px;">
+                    Pixel Kingdom is a modernized version of the classic<br>
+                    Connect 4 game, immersed in a medieval pixel art universe.
+                </p>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🎯 Objectives</h3>
+                        <ul>
+                            <li>Interactive web application</li>
+                            <li>Real-time communication</li>
+                            <li>Immersive experience</li>
+                            <li>Personalization</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>✨ Strengths</h3>
+                        <ul>
+                            <li>Unique pixel art interface</li>
+                            <li>Ambient music</li>
+                            <li>Customizable themes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: TARGET AUDIENCE -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>👥 TARGET AUDIENCE</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🎮 Casual players</h3>
+                        <ul>
+                            <li>Quick and accessible game</li>
+                            <li>Fans of puzzle games</li>
+                            <li>Nostalgic for Connect 4</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🏰 Pixel art lovers</h3>
+                        <ul>
+                            <li>Fans of medieval universes</li>
+                            <li>Retro-gaming enthusiasts</li>
+                            <li>Vintage design fans</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box" style="margin-top: 20px;">
+                    <h3 class="center">👨‍👩‍👧‍👦 Everyone</h3>
+                    <p class="center">Age: 3+ Quick matches (5-10 min)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: THE STORY -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📖 THE STORY</h1>
+                <div class="box">
+                    <h3>🏰 The Context</h3>
+                    <p>In the distant lands of Pixel Kingdom, two rival lords battle for control: the Red Knight and the
+                        Yellow Paladin.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🔴 Red Knight</h3>
+                        <p>Bold and strategic<br>Master of offense</p>
+                    </div>
+                    <div class="box">
+                        <h3>🟡 Yellow Paladin</h3>
+                        <p>Wise and calculating<br>Defense expert</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <p class="center">⚔️ Whoever aligns 4 banners (TOKENS) in the Great Grid of Destiny becomes the
+                        legitimate sovereign!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: THE RULES -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎲 THE RULES</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>⚡ Principle</h3>
+                        <ul>
+                            <li>2 players compete</li>
+                            <li>6×7 Grid</li>
+                            <li>Red starts</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎯 Objective</h3>
+                        <ul>
+                            <li>Successfully align 4 tokens in any direction:
+                                horizontal, vertical or diagonal.
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="center">🎮 Gameplay</h3>
+                    <p>1. Click column → 2. Token falls → 3. Turn ends → 4. Repeat</p>
+                </div>
+                <div class="box">
+                    <p class="center"><span class="highlight">🏆 4 aligned tokens = VICTORY!</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: TECH STACK -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>💻 TECH STACK</h1>
+                <div class="tech-stack">
+                    <span class="badge">Go 1.21+</span>
+                    <span class="badge">Gorilla WebSocket</span>
+                    <span class="badge">HTML5</span>
+                    <span class="badge">CSS3</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">LocalStorage</span>
+                    <span class="badge">Claude</span>
+                    <span class="badge">Youtube</span>
+                    <span class="badge">Github</span>
+                    <span class="badge">Golang.com</span>
+                    <span class="badge">Discord</span>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🔧 Backend</h3>
+                        <ul>
+                            <li>Golang Server</li>
+                            <li>WebSocket</li>
+                            <li>Game logic</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎨 Frontend</h3>
+                        <ul>
+                            <li>Pixel art design</li>
+                            <li>Smooth animations</li>
+                            <li>Responsive design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: CHALLENGES -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🚧 CHALLENGES ENCOUNTERED</h1>
+                <div class="box">
+                    <h3>🔴 Technical</h3>
+                    <ul>
+                        <li>WebSocket & synchronization</li>
+                        <li>Token animations</li>
+                        <li>Music persistence</li>
+                    </ul>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🟡 Design</h3>
+                        <ul>
+                            <li>Visual consistency</li>
+                            <li>Responsive design</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🟢 Organization</h3>
+                        <ul>
+                            <li>Code architecture</li>
+                            <li>Cookies vs LocalStorage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: FUTURE PROJECTION -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🚀 FUTURE PROJECTION</h1>
+                <div class="box">
+                    <h3>✨ Short term (1-3 months)</h3>
+                    <ul>
+                        <li>Online multiplayer mode</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Score & ranking system</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>🏆 Mid term (3-6 months)</h3>
+                    <ul>
+                        <li>User accounts</li>
+                        <li>Online tournaments</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>🎨 Long term (6-12 months)</h3>
+                    <ul>
+                        <li>More themes (Xmas, Space, Ocean)</li>
+                        <li>Native mobile version</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: SOURCES -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📚 SOURCES</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>📖 Documentation</h3>
+                        <ul>
+                            <li>Go Documentation</li>
+                            <li>Gorilla WebSocket</li>
+                            <li>MDN Web Docs</li>
+                            <li>Discord / Youtube</li>
+                            <li>Google</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎨 Assets</h3>
+                        <ul>
+                            <li>Google Fonts</li>
+                            <li>Unsplash / Pexels</li>
+                            <li>Freesound.org</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="center">💡 Inspirations</h3>
+                    <p class="center">Stardew Valley • Undertale • Celeste • Indie MMORPG</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: CONCLUSION -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎯 CONCLUSION</h1>
+                <div class="box">
+                    <h3>✅ Objectives achieved</h3>
+                    <ul>
+                        <li>Mastery of Go & WebSockets</li>
+                        <li>Complete web application</li>
+                        <li>CSS design skills</li>
+                        <li>Real-time architecture</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3 class="center">📊 Report</h3>
+                    <p class="center">
+                        <span class="highlight">+150 hours</span> •
+                        <span class="highlight">1500+ lines</span>
+                        <li>Despite difficulties due to lack of information, we overcame hurdles and provided a great
+                            user experience with our game.</li>
+                    </p>
+                </div>
+                <p class="center highlight" style="font-size: 1rem; margin-top: 30px;">
+                    🚀 And it's only the beginning!
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: DEMO -->
+        <div class="slide">
+            <div class="slide-content center">
+                <h1>🎬 DEMONSTRATION</h1>
+                <div class="icon" style="font-size: 5rem;">🎮</div>
+                <p class="subtitle">Game access</p>
+                <div class="box">
+                    <p style="font-size: 1rem; color: #ffd700;">http://localhost:8080</p>
+                </div>
+                <h2 style="margin-top: 60px;">🙏 THANK YOU!</h2>
+                <p>Any questions? 🤔</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">◀ Previous</button>
+        <button id="nextBtn">Next ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideNumber = document.getElementById('slideNumber');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            slideNumber.textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+            if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
+        });
+        showSlide(0);
+    </script>
+</body>
+
+</html>

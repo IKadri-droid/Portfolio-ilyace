@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Reino Pixel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: #1a1a1a;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+            color: #f4e4c1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .slide-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-shadow: 3px 3px 0 #8b4513, 5px 5px 0 rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #f39c12;
+            margin: 20px 0 10px 0;
+        }
+
+        p,
+        li {
+            font-size: 0.7rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #c9a961;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "⚔️ ";
+            margin-right: 10px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        button {
+            background: linear-gradient(135deg, #8e44ad, #6c3483);
+            border: 3px solid #ffd700;
+            color: #fff;
+            padding: 12px 30px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .slide-number {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 215, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: #ffd700;
+            z-index: 100;
+        }
+
+        .box {
+            background: rgba(40, 40, 40, 0.6);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #f39c12;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60, #229954);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            margin: 5px;
+            border: 2px solid #1e8449;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="presentation">
+        <div class="slide-number" id="slideNumber">Slide 1 / 13</div>
+
+        <!-- SLIDE 1: PÁGINA DE PORTADA -->
+        <div class="slide active">
+            <div class="slide-content center">
+                <div class="icon">⚔️🏰⚔️</div>
+                <h1 style="font-size: 3rem;">REINO PIXEL</h1>
+                <h2>Conecta 4 Medieval</h2>
+                <p class="subtitle">Un juego en línea desarrollado en Go y WebSocket</p>
+                <div style="margin-top: 50px;">
+                    <p>Por: [Ilyace y Enzo]</p>
+                    <p>Fecha: Enero 2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: RESUMEN -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📑 RESUMEN</h1>
+                <div class="box">
+                    <ul style="font-size: 0.8rem;">
+                        <li>Presentación del proyecto</li>
+                        <li>Público objetivo</li>
+                        <li>La historia</li>
+                        <li>Las reglas</li>
+                        <li>Pila técnica</li>
+                        <li>Herramientas y métodos</li>
+                        <li>Dificultades encontradas</li>
+                        <li>Proyección futura</li>
+                        <li>Fuentes</li>
+                        <li>Conclusión</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: PRESENTACIÓN -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎮 PRESENTACIÓN</h1>
+                <p style="text-align: center; font-size: 0.8rem; margin-bottom: 30px;">
+                    Reino Pixel es una versión modernizada del clásico juego<br>
+                    Conecta 4, sumergido en un universo medieval de píxel art.
+                </p>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Aplicación web interactiva</li>
+                            <li>Comunicación en tiempo real</li>
+                            <li>Experiencia inmersiva</li>
+                            <li>Personalización</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>✨ Fortalezas</h3>
+                        <ul>
+                            <li>Interfaz única de píxel art</li>
+                            <li>Música ambiental</li>
+                            <li>Temas personalizables</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: PÚBLICO OBJETIVO -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>👥 PÚBLICO OBJETIVO</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🎮 Jugadores casuales</h3>
+                        <ul>
+                            <li>Juego rápido y accesible</li>
+                            <li>Fans de los juegos de puzle</li>
+                            <li>Nostálgicos por el Conecta 4</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🏰 Amantes del píxel art</h3>
+                        <ul>
+                            <li>Fans de universos medievales</li>
+                            <li>Entusiastas del retro-gaming</li>
+                            <li>Fans del diseño vintage</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box" style="margin-top: 20px;">
+                    <h3 class="center">👨‍👩‍👧‍👦 Para todos</h3>
+                    <p class="center">Edad: 3+ Partidas rápidas (5-10 min)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: LA HISTORIA -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📖 LA HISTORIA</h1>
+                <div class="box">
+                    <h3>🏰 El Contexto</h3>
+                    <p>En las tierras lejanas de Reino Pixel, dos señores rivales luchan por el control: el Caballero
+                        Rojo y el Paladín Amarillo.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🔴 Caballero Rojo</h3>
+                        <p>Audaz y estratégico<br>Maestro de la ofensiva</p>
+                    </div>
+                    <div class="box">
+                        <h3>🟡 Paladín Amarillo</h3>
+                        <p>Sabio y calculador<br>Experto en defensa</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <p class="center">⚔️ ¡Quien alinee 4 estandartes (FICHAS) en la Gran Cuadrícula del Destino se
+                        convierte en el soberano legítimo!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: LAS REGLAS -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎲 LAS REGLAS</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>⚡ Principio</h3>
+                        <ul>
+                            <li>2 jugadores compiten</li>
+                            <li>Cuadrícula 6×7</li>
+                            <li>Rojo empieza</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎯 Objetivo</h3>
+                        <ul>
+                            <li>Alinear con éxito 4 fichas en cualquier dirección:
+                                horizontal, vertical o diagonal.
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="center">🎮 Jugabilidad</h3>
+                    <p>1. Clic en columna → 2. La ficha cae → 3. Turno del otro → 4. Repetir</p>
+                </div>
+                <div class="box">
+                    <p class="center"><span class="highlight">🏆 4 fichas alineadas = ¡VICTORIA!</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: PILA TÉCNICA -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>💻 PILA TÉCNICA</h1>
+                <div class="tech-stack">
+                    <span class="badge">Go 1.21+</span>
+                    <span class="badge">Gorilla WebSocket</span>
+                    <span class="badge">HTML5</span>
+                    <span class="badge">CSS3</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">LocalStorage</span>
+                    <span class="badge">Claude</span>
+                    <span class="badge">Youtube</span>
+                    <span class="badge">Github</span>
+                    <span class="badge">Golang.com</span>
+                    <span class="badge">Discord</span>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🔧 Backend</h3>
+                        <ul>
+                            <li>Servidor en Golang</li>
+                            <li>WebSocket</li>
+                            <li>Lógica de juego</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎨 Frontend</h3>
+                        <ul>
+                            <li>Diseño píxel art</li>
+                            <li>Animaciones fluidas</li>
+                            <li>Diseño adaptable</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: DIFICULTADES -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🚧 DIFICULTADES ENCONTRADAS</h1>
+                <div class="box">
+                    <h3>🔴 Técnicas</h3>
+                    <ul>
+                        <li>WebSocket y sincronización</li>
+                        <li>Animación de fichas</li>
+                        <li>Persistencia de la música</li>
+                    </ul>
+                </div>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>🟡 Diseño</h3>
+                        <ul>
+                            <li>Consistencia visual</li>
+                            <li>Diseño adaptable</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🟢 Organización</h3>
+                        <ul>
+                            <li>Arquitectura de código</li>
+                            <li>Cookies vs LocalStorage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: PROYECCIÓN FUTURA -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🚀 PROYECCIÓN FUTURA</h1>
+                <div class="box">
+                    <h3>✨ Corto plazo (1-3 meses)</h3>
+                    <ul>
+                        <li>Modo multijugador en línea</li>
+                        <li>Inteligencia Artificial</li>
+                        <li>Sistema de puntos y clasificación</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>🏆 Medio plazo (3-6 meses)</h3>
+                    <ul>
+                        <li>Cuentas de usuario</li>
+                        <li>Torneos en línea</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>🎨 Largo plazo (6-12 meses)</h3>
+                    <ul>
+                        <li>Más temas (Navidad, Espacio, Océano)</li>
+                        <li>Versión móvil nativa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: FUENTES -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>📚 FUENTES</h1>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>📖 Documentación</h3>
+                        <ul>
+                            <li>Documentación de Go</li>
+                            <li>Gorilla WebSocket</li>
+                            <li>MDN Web Docs</li>
+                            <li>Discord / Youtube</li>
+                            <li>Google</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>🎨 Activos</h3>
+                        <ul>
+                            <li>Google Fonts</li>
+                            <li>Unsplash / Pexels</li>
+                            <li>Freesound.org</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="center">💡 Inspiraciones</h3>
+                    <p class="center">Stardew Valley • Undertale • Celeste • MMORPG Indie</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: CONCLUSIÓN -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎯 CONCLUSIÓN</h1>
+                <div class="box">
+                    <h3>✅ Objetivos logrados</h3>
+                    <ul>
+                        <li>Dominio de Go y WebSockets</li>
+                        <li>Aplicación web completa</li>
+                        <li>Habilidades de diseño CSS</li>
+                        <li>Arquitectura en tiempo real</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3 class="center">📊 Reporte</h3>
+                    <p class="center">
+                        <span class="highlight">+150 horas</span> •
+                        <span class="highlight">1500+ líneas</span>
+                        <li>A pesar de las dificultades por la falta de información, superamos los obstáculos y
+                            brindamos una gran experiencia de usuario con nuestro juego.</li>
+                    </p>
+                </div>
+                <p class="center highlight" style="font-size: 1rem; margin-top: 30px;">
+                    🚀 ¡Y esto es solo el comienzo!
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: DEMO -->
+        <div class="slide">
+            <div class="slide-content center">
+                <h1>🎬 DEMOSTRACIÓN</h1>
+                <div class="icon" style="font-size: 5rem;">🎮</div>
+                <p class="subtitle">Acceso al juego</p>
+                <div class="box">
+                    <p style="font-size: 1rem; color: #ffd700;">http://localhost:8080</p>
+                </div>
+                <h2 style="margin-top: 60px;">🙏 ¡GRACIAS!</h2>
+                <p>¿Alguna pregunta? 🤔</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">◀ Anterior</button>
+        <button id="nextBtn">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideNumber = document.getElementById('slideNumber');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            slideNumber.textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+            if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
+        });
+        showSlide(0);
+    </script>
+</body>
+
+</html>

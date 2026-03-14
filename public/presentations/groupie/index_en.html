@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie Tracker - Presentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="quick-nav">
+        <a href="#hero" title="Intro">●</a>
+        <a href="#concept" title="Concept">●</a>
+        <a href="#bmc" title="Business Model">●</a>
+        <a href="#features" title="Features">●</a>
+        <a href="#transition" title="Technical Transition">●</a>
+        <a href="#stack-overview" title="Tech Stack">●</a>
+        <a href="#frontend" title="Frontend">●</a>
+        <a href="#backend" title="Backend">●</a>
+        <a href="#infra" title="Infrastructure">●</a>
+        <a href="#conclusion" title="Conclusion">●</a>
+    </nav>
+
+    <main class="slides-container">
+
+        <!-- 1. HERO -->
+        <section id="hero" class="slide hero-slide">
+            <div class="content-wrapper">
+                <h1 class="glitch-text" data-text="GROUPIE TRACKER">GROUPIE TRACKER</h1>
+                <p class="hero-subtitle">The ultimate experience for live music enthusiasts.</p>
+                <div class="narrative-text">
+                    <p>Imagine... You love an artist...</p>
+                    <p>But following their tours, dates, and concert venues is an uphill battle.</p>
+                    <p><strong>Groupie Tracker</strong> is THE platform that brings it all together.</p>
+                </div>
+                <a href="#concept" class="cta-button">Discover the project</a>
+            </div>
+            <div class="background-glow"></div>
+        </section>
+
+        <!-- 2. CONCEPT & VISION -->
+        <section id="concept" class="slide concept-slide">
+            <div class="content-wrapper">
+                <h2>Concept & Vision</h2>
+                <div class="concept-grid">
+                    <div class="card glass">
+                        <h3>🎯 For Whom?</h3>
+                        <p>Inconditional fans, concert-goers, those who live for live music and don't want to miss any date.</p>
+                    </div>
+                    <div class="card glass">
+                        <h3>⚠️ The Problem</h3>
+                        <p>Information is scattered. Official sites, ticket offices, social networks... It's chaos to follow a complete tour.</p>
+                    </div>
+                    <div class="card glass highlight">
+                        <h3>💡 The Groupie Tracker Solution</h3>
+                        <p>A unique, immersive, and visual interface to explore artists, geolocate concerts and know everything in one click.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. BUSINESS MODEL CANVAS -->
+        <section id="bmc" class="slide bmc-slide">
+            <div class="content-wrapper">
+                <h2>Business Model Canvas</h2>
+                <div class="canvas-grid">
+                    <div class="cell kp glass">
+                        <h3>Key Partners 🤝</h3>
+                        <ul>
+                            <li>Concert organizers</li>
+                            <li>Music labels</li>
+                            <li>Ticketing (Ticketmaster...)</li>
+                            <li>Streaming services (Deezer)</li>
+                        </ul>
+                    </div>
+                    <div class="cell ka glass">
+                        <h3>Key Activities ⚙️</h3>
+                        <ul>
+                            <li>API data aggregation</li>
+                            <li>Platform development</li>
+                            <li>Maintenance & UX/UI</li>
+                            <li>Partnerships</li>
+                        </ul>
+                    </div>
+                    <div class="cell kr glass">
+                        <h3>Key Resources 💎</h3>
+                        <ul>
+                            <li>Groupie Tracker API</li>
+                            <li>Artist database</li>
+                            <li>Cloud Infrastructure</li>
+                            <li>Dev team</li>
+                        </ul>
+                    </div>
+                    <div class="cell vp glass highlight-cell">
+                        <h3>Value Propositions 🎁</h3>
+                        <ul>
+                            <li><strong>All-in-one:</strong> Dates, venues, info.</li>
+                            <li><strong>Visual:</strong> 3D interactive globe.</li>
+                            <li><strong>Simplicity:</strong> Fan-focused UX.</li>
+                            <li><strong>Reliability:</strong> Up-to-date data.</li>
+                        </ul>
+                    </div>
+                    <div class="cell cr glass">
+                        <h3>Customer Relationships ❤️</h3>
+                        <ul>
+                            <li>Active community</li>
+                            <li>Favorites system</li>
+                            <li>User support</li>
+                            <li>Personalized newsletters</li>
+                        </ul>
+                    </div>
+                    <div class="cell ch glass">
+                        <h3>Channels 📢</h3>
+                        <ul>
+                            <li>Web Site (PWA)</li>
+                            <li>Social Networks</li>
+                            <li>SEO / Music Blog</li>
+                            <li>Influencer Partnerships</li>
+                        </ul>
+                    </div>
+                    <div class="cell cs glass">
+                        <h3>Customer Segments 👥</h3>
+                        <ul>
+                            <li>Music fans (15-45 years old)</li>
+                            <li>Travelers / Tourists</li>
+                            <li>Industry professionals</li>
+                        </ul>
+                    </div>
+                    <div class="cell cost glass">
+                        <h3>Cost Structure 💸</h3>
+                        <ul>
+                            <li>Hosting & Servers</li>
+                            <li>Dev & Maintenance</li>
+                            <li>Marketing & Advertisement</li>
+                        </ul>
+                    </div>
+                    <div class="cell rev glass">
+                        <h3>Revenue Streams 💰</h3>
+                        <ul>
+                            <li>Ticketing commissions (affiliation)</li>
+                            <li>Targeted advertising (Freemium)</li>
+                            <li>Premium Subscription (VIP Alerts)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FEATURES -->
+        <section id="features" class="slide features-slide">
+            <div class="content-wrapper">
+                <h2>User Experience</h2>
+                <div class="features-scroll">
+                    <article class="feature-card glass">
+                        <div class="icon">🎸</div>
+                        <h3>Immersive Catalog</h3>
+                        <p>Explore thousands of artists with a smooth and visual interface.</p>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="icon">🌍</div>
+                        <h3>3D Interactive Globe</h3>
+                        <p>Visualize world tours on a 3D globe. Click, spin, discover.</p>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="icon">🎟️</div>
+                        <h3>Concert Sheets</h3>
+                        <p>Precise details: venues, dates, direct booking links.</p>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="icon">💳</div>
+                        <h3>Secure Payment</h3>
+                        <p>Stripe integration for a smooth booking experience.</p>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="icon">⭐</div>
+                        <h3>Personal Space</h3>
+                        <p>Manage your favorites, find your history and receive alerts.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TRANSITION -->
+        <section id="transition" class="slide transition-slide">
+            <div class="content-wrapper centered">
+                <h2>Behind the scenes...</h2>
+                <p>Now that we've seen the product,</p>
+                <p class="big-text">How did we build it?</p>
+                <div class="scroll-indicator">↓</div>
+            </div>
+        </section>
+
+        <!-- 6. TECH STACK -->
+        <section id="stack-overview" class="slide stack-slide">
+            <div class="content-wrapper">
+                <h2>Global Technical Architecture</h2>
+                <div class="canvas-grid stack-specific">
+                    <div class="cell kp glass orange">
+                        <h3>External API 🔗</h3>
+                        <ul>
+                            <li><strong>Deezer API</strong><br><small>Search, Images, Albums</small></li>
+                            <li><strong>Groupie API</strong><br><small>Artist & Concert Data</small></li>
+                        </ul>
+                    </div>
+                    <div class="cell ka glass blue">
+                        <h3>Backend Logic 🧠</h3>
+                        <ul>
+                            <li><strong>Go (Golang)</strong></li>
+                            <li>Standard HTTP Server</li>
+                            <li>Modular Architecture</li>
+                            <li>Error Management</li>
+                        </ul>
+                    </div>
+                    <div class="cell kr glass blue">
+                        <h3>Persistence 💾</h3>
+                        <ul>
+                            <li><strong>PostgreSQL</strong></li>
+                            <li>Tours/Artists Relations</li>
+                            <li>User Storage</li>
+                        </ul>
+                    </div>
+                    <div class="cell vp glass purple highlight-cell">
+                        <h3>The Core Application 💖</h3>
+                        <ul>
+                            <li><strong>React 19 SPA</strong></li>
+                            <li>Performance (Vite)</li>
+                            <li>Smooth Navigation</li>
+                            <li>Global State (Zustand)</li>
+                        </ul>
+                    </div>
+                    <div class="cell cr glass red">
+                        <h3>Security & Auth 🛡️</h3>
+                        <ul>
+                            <li><strong>JWT (JSON Web Tokens)</strong></li>
+                            <li>Route Protection</li>
+                            <li>Password Hashing (Argon2/Bcrypt)</li>
+                        </ul>
+                    </div>
+                    <div class="cell ch glass green">
+                        <h3>Payments 💵</h3>
+                        <ul>
+                            <li><strong>Stripe Integration</strong></li>
+                            <li>Secure Webhooks</li>
+                            <li>Order Management</li>
+                        </ul>
+                    </div>
+                    <div class="cell cs glass purple">
+                        <h3>Frontend UI 🎨</h3>
+                        <ul>
+                            <li><strong>Tailwind CSS v4</strong></li>
+                            <li><strong>Framer Motion</strong></li>
+                            <li><strong>Three.js / Globe</strong></li>
+                        </ul>
+                    </div>
+                    <div class="cell cost glass gray">
+                        <h3>Infrastructure 🏗️</h3>
+                        <ul>
+                            <li><strong>Docker</strong> (Containerization)</li>
+                            <li><strong>Docker Compose</strong> (Orchestration)</li>
+                        </ul>
+                    </div>
+                    <div class="cell rev glass gray">
+                        <h3>Deployment 🚀</h3>
+                        <ul>
+                            <li>CI/CD (Github Actions - Potential)</li>
+                            <li>Linux Server / VPS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FRONTEND -->
+        <section id="frontend" class="slide detail-slide">
+            <div class="content-wrapper">
+                <h2>Frontend Overview 🎨</h2>
+                <div class="tech-list">
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge react">React 19 + Vite</span>
+                        </div>
+                        <p class="simple">🟢 Rapid and modern application engine.</p>
+                        <p class="advanced">🔵 Using latest Hooks, Fast Refresh, optimized build.</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge ts">TypeScript</span>
+                        </div>
+                        <p class="simple">🟢 Secure code and fewer bugs.</p>
+                        <p class="advanced">🔵 Strict typing of props and API responses.</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge state">Zustand + TanStack Query</span>
+                        </div>
+                        <p class="simple">🟢 Fluid data management.</p>
+                        <p class="advanced">🔵 Server caching (Query) and lightweight global state (Zustand).</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge ui">Tailwind v4 + Framer Motion</span>
+                        </div>
+                        <p class="simple">🟢 Beautiful design and animations.</p>
+                        <p class="advanced">🔵 JIT Compiler, complex declarative animations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. BACKEND -->
+        <section id="backend" class="slide detail-slide">
+            <div class="content-wrapper">
+                <h2>Backend Overview ⚙️</h2>
+                <div class="tech-list">
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge go">Go (Golang)</span>
+                        </div>
+                        <p class="simple">🟢 High-performance and robust language.</p>
+                        <p class="advanced">🔵 Native concurrency (Goroutines), strong static typing.</p>
+                    </div>
+                    <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge db">PostgreSQL</span>
+                        </div>
+                        <p class="simple">🟢 Reliable database.</p>
+                        <p class="advanced">🔵 Complex relations, ACID data integrity.</p>
+                    </div>
+                     <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge api">Deezer API</span>
+                        </div>
+                        <p class="simple">🟢 Why Deezer? More open than Spotify.</p>
+                        <p class="advanced">🔵 Public API accessible without complex OAuth for public data.</p>
+                    </div>
+                     <div class="tech-item glass">
+                        <div class="header">
+                            <span class="badge sec">Security (JWT)</span>
+                        </div>
+                        <p class="simple">🟢 Secure login.</p>
+                        <p class="advanced">🔵 Stateless Tokens, Auth Middleware.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. INFRA -->
+        <section id="infra" class="slide infra-slide">
+            <div class="content-wrapper">
+                <h2>Infrastructure & Deployment 📦</h2>
+                <div class="infra-diagram glass">
+                    <div class="box docker">Docker Compose</div>
+                    <div class="arrows">
+                        <span>⬇️</span>
+                        <span>⬇️</span>
+                    </div>
+                    <div class="services">
+                        <div class="service frontend">Frontend (Nginx/Vite) <br> :80 / :5173</div>
+                        <div class="service backend">Backend (Go) <br> :8080</div>
+                        <div class="service db">Database (Postgres) <br> :5432</div>
+                    </div>
+                </div>
+                <div class="infra-desc">
+                    <p>Each service is isolated in its container. Deployment is reproducible identically on any machine.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CONCLUSION -->
+        <section id="conclusion" class="slide conclusion-slide">
+            <div class="content-wrapper centered">
+                <h2>In Summary</h2>
+                <p class="big-text">A modern stack. An immersive experience.</p>
+                <div class="stack-icons">
+                    <span>🔥 React</span>
+                    <span>🚀 Go</span>
+                    <span>🐳 Docker</span>
+                    <span>🎨 Tailwind</span>
+                </div>
+                <p class="thank-you">Thank you for your attention!</p>
+                <a href="#hero" class="restart-link">Review the presentation</a>
+            </div>
+            <footer>
+                <p>&copy; 2026 Groupie Tracker Team - Ynov Campus Project</p>
+            </footer>
+        </section>
+
+    </main>
+
+</body>
+</html>
