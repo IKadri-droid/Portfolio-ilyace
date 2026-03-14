@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Github, ExternalLink } from 'lucide-react';
 import BackgroundEffects from "./components/BackgroundEffects";
 
 import SideBar from "./features/navigation/SideBar";
@@ -25,6 +25,7 @@ function App() {
   const cursorRef = useRef(null);
   const [selectedPresentation, setSelectedPresentation] = useState(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [notification, setNotification] = useState(null);
 
   const openPresentation = (url) => {
     setSelectedPresentation(url);
@@ -41,13 +42,34 @@ function App() {
     }, 400); // Duration matches animation-out
   };
 
+  const showNotification = (msg) => {
+    setNotification(msg);
+    setTimeout(() => setNotification(null), 3000);
+  };
+
   const T = translations[lang];
+
+  // Update Meta Tags dynamically
+  useEffect(() => {
+    document.title = T.meta.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', T.meta.description);
+    } else {
+      const newMeta = document.createElement('meta');
+      newMeta.name = 'description';
+      newMeta.content = T.meta.description;
+      document.head.appendChild(newMeta);
+    }
+  }, [lang, T.meta.title, T.meta.description]);
 
   // Instant cursor tracking (No delay)
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${e.clientX - 7}px, ${e.clientY - 7}px, 0)`;
+        requestAnimationFrame(() => {
+          cursorRef.current.style.transform = `translate3d(${e.clientX - 7}px, ${e.clientY - 7}px, 0)`;
+        });
       }
     };
     const handleClickOutside = (event) => {
@@ -106,14 +128,21 @@ function App() {
       {/* Super smooth generic cursor */}
       <div ref={cursorRef} className="custom-cursor hidden md:block" />
 
+      {/* Global Notifications */}
+      {notification && (
+        <div className={`fixed bottom-10 left-1/2 -translate-x-1/2 z-[1000] px-6 py-3 bg-indie-text text-indie-bg text-[10px] tracking-[0.3em] uppercase font-bold rounded-full shadow-2xl transition-all duration-700 animate-fade-in`}>
+          {notification}
+        </div>
+      )}
+
       {/* Theme & Language Selectors */}
       <div className={`fixed top-8 ${lang === 'ar' ? 'left-8 md:left-12' : 'right-8 md:right-12'} z-[200] flex gap-3`}>
         {/* Language Selector Dropdown */}
         <div className="relative" ref={langRef}>
           <button
+            aria-label="Toggle Language"
             onClick={() => setIsLangOpen(!isLangOpen)}
             className="w-12 h-12 rounded-full bg-white/40 dark:bg-black/20 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-glass flex items-center justify-center text-indie-text hover:text-indie-primary transition-all duration-500 group uppercase text-[10px] font-bold tracking-widest"
-            title="Choose Language"
           >
             <div className="absolute inset-0 rounded-full bg-indie-primary/0 group-hover:bg-indie-primary/10 transition-colors duration-500" />
             <span className="relative z-10">{lang}</span>
@@ -155,7 +184,7 @@ function App() {
       </div>
 
       <BackgroundEffects />
-      <SideBar activeSection={activeSection} t={T.nav} />
+      <SideBar activeSection={activeSection} t={T.nav} showNotification={showNotification} lang={lang} />
       <ProfilePhoto />
 
       <main className={`relative z-10 max-w-6xl mx-auto ${lang === 'ar' ? 'md:pr-24' : 'md:pl-24'}`}>
@@ -224,10 +253,23 @@ function App() {
                 <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-700" />
 
                 {/* Visual Hint on Hover */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100">
-                  <div className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100 gap-4">
+                  <button
+                    onClick={(e) => { e.stopPropagation(); openPresentation(`/presentations/groupie/index${lang === 'fr' ? '' : '_' + lang}.html`); }}
+                    className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl hover:bg-white/20 transition-all active:scale-95 flex items-center gap-2"
+                  >
                     {lang === 'ar' ? 'عرض' : lang === 'en' ? 'VIEW' : lang === 'es' ? 'VER' : 'VOIR'}
-                  </div>
+                  </button>
+                  <a
+                    href="https://github.com/IKadri-droid/groupie-tracker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-10 h-10 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white flex items-center justify-center shadow-2xl hover:bg-white/20 transition-all active:scale-95"
+                    title="Source Code"
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
                 </div>
 
                 <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
@@ -250,11 +292,27 @@ function App() {
                 <img src={discordImg} alt="Discord Bot" className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-700" />
 
-                {/* Visual Hint on Hover */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100">
-                  <div className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl">
-                    {lang === 'ar' ? 'عرض' : lang === 'en' ? 'VIEW' : lang === 'es' ? 'VER' : 'VOIR'}
-                  </div>
+                {/* Visual Hint on Hover Project 2 */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100 gap-4">
+                  <a
+                    href="https://github.com/IKadri-droid/Bot-Discord-JS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl hover:bg-white/20 transition-all active:scale-95 flex items-center gap-2"
+                  >
+                    CODE
+                  </a>
+                  <a
+                    href="https://github.com/IKadri-droid"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-10 h-10 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white flex items-center justify-center shadow-2xl hover:bg-white/20 transition-all active:scale-95"
+                    title="Live Preview"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
 
                 <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
@@ -277,11 +335,24 @@ function App() {
                 <img src={puissance4Img} alt="Puissance 4" className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-700" />
 
-                {/* Visual Hint on Hover */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100">
-                  <div className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl">
+                {/* Visual Hint on Hover Project 3 */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100 gap-4">
+                  <button
+                    onClick={(e) => { e.stopPropagation(); openPresentation(`/presentations/puissance4/index${lang === 'fr' ? '' : '_' + lang}.html`); }}
+                    className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl hover:bg-white/20 transition-all active:scale-95 flex items-center gap-2"
+                  >
                     {lang === 'ar' ? 'عرض' : lang === 'en' ? 'VIEW' : lang === 'es' ? 'VER' : 'VOIR'}
-                  </div>
+                  </button>
+                  <a
+                    href="https://github.com/IKadri-droid"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-10 h-10 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white flex items-center justify-center shadow-2xl hover:bg-white/20 transition-all active:scale-95"
+                    title="Source Code"
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
                 </div>
 
                 <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2">
@@ -308,10 +379,19 @@ function App() {
                     <span className="text-[10px] tracking-[0.3em] uppercase text-white font-bold">{T.projects.p4_status}</span>
                   </div>
                   {/* Hover Hint */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 scale-95 group-hover:scale-100 gap-4">
                     <div className="px-6 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] tracking-[0.4em] uppercase font-bold shadow-2xl">
                       {lang === 'ar' ? 'عرض' : lang === 'en' ? 'VIEW' : lang === 'es' ? 'VER' : 'VOIR'}
                     </div>
+                    <a
+                      href="https://github.com/IKadri-droid"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-full text-white flex items-center justify-center shadow-2xl hover:bg-white/20 transition-all active:scale-95"
+                      title="Source Code"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
 
@@ -330,7 +410,7 @@ function App() {
           </div>
         </section>
 
-        <Contact t={T.contact} className={`transition-all duration-1000 ${visibleSections.has('contact') ? 'animate-fade-in' : 'opacity-0'}`} />
+        <Contact t={T.contact} showNotification={showNotification} lang={lang} className={`transition-all duration-1000 ${visibleSections.has('contact') ? 'animate-fade-in' : 'opacity-0'}`} />
       </main>
 
       {/* Presentation Modal */}

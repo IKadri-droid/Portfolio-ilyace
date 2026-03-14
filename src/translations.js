@@ -62,6 +62,10 @@ export const translations = {
       subtitle: "Travaillons ensemble",
       description: "Un projet en tête ou simplement envie de discuter ? N'hésitez pas à me contacter via les réseaux ou par mail.",
       email_me: "M'envoyer un mail",
+    },
+    meta: {
+      title: "Ilyace Kadri | Portfolio Architecture & Cybersécurité",
+      description: "Découvrez le portfolio d'Ilyace Kadri, étudiant en cybersécurité passionné par l'architecture des systèmes et la protection des données.",
     }
   },
   en: {
@@ -127,6 +131,10 @@ export const translations = {
       subtitle: "Let's work together",
       description: "Have a project in mind or just want to chat? Feel free to contact me via social media or email.",
       email_me: "Send me an email",
+    },
+    meta: {
+      title: "Ilyace Kadri | Cybersecurity & Systems Portfolio",
+      description: "Explore the portfolio of Ilyace Kadri, a cybersecurity student specializing in systems architecture and secure development.",
     }
   },
   es: {
@@ -192,6 +200,10 @@ export const translations = {
       subtitle: "Trabajemos juntos",
       description: "¿Tienes un proyecto en mente o simplemente quieres charlar? No dudes en contactarme por redes sociales o correo electrónico.",
       email_me: "Enviarme un correo",
+    },
+    meta: {
+      title: "Ilyace Kadri | Portfolio de Ciberseguridad y Sistemas",
+      description: "Explora el portafolio de Ilyace Kadri, estudiante de ciberseguridad especializado en arquitectura de sistemas y desarrollo seguro.",
     }
   },
   ar: {
@@ -254,9 +266,13 @@ export const translations = {
     },
     contact: {
       title: "اتصل بي",
-      subtitle: "لن نعمل معاً",
+      subtitle: "لنعمل معاً",
       description: "هل لديك مشروع في بالك أو ترغب فقط في النقاش؟ لا تتردد في التواصل معي عبر الشبكات الاجتماعية أو البريد الإلكتروني.",
       email_me: "أرسل لي بريداً إلكترونياً",
+    },
+    meta: {
+      title: "الياس قادري | معرض أعمال الأمن السيبراني والأنظمة",
+      description: "اكتشف معرض أعمال الياس قادري، طالب الأمن السيبراني المتخصص في هندسة الأنظمة والتطوير الآمن.",
     }
   }
 };
