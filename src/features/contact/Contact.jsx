@@ -21,9 +21,9 @@ const Contact = ({ className, t, showNotification, lang }) => {
     }
 
     const templateParams = {
-      from_name: formData.name,
-      reply_to: formData.email,
-      message: formData.message,
+      user_name: formData.name,
+      user_email: formData.email,
+      user_message: formData.message,
       to_name: 'Ilyace',
     };
 
