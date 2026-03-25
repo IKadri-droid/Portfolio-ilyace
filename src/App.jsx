@@ -188,9 +188,9 @@ function App() {
       <ProfilePhoto />
 
       <main className={`relative z-10 max-w-6xl mx-auto ${lang === 'ar' ? 'md:pr-24' : 'md:pl-24'}`}>
-        <section id="hero" className={`min-h-screen flex items-center justify-start transition-all duration-1000 ${visibleSections.has('hero') ? 'animate-fade-in' : 'opacity-0'}`}>
-          <div className={`${lang === 'ar' ? 'text-right' : 'text-left'} space-y-8 px-8 sm:px-12 w-full max-w-3xl pt-24 md:pt-0`}>
-            <div className="space-y-4">
+        <section id="hero" className={`min-h-screen flex items-center justify-center transition-all duration-1000 ${visibleSections.has('hero') ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div className={`text-center space-y-8 px-8 sm:px-12 w-full max-w-3xl flex flex-col items-center pt-24 md:pt-0 mx-auto`}>
+            <div className="space-y-4 flex flex-col items-center">
               <span className="inline-block text-indie-primary text-[11px] font-semibold tracking-[0.3em] uppercase">
                 {T.hero.subtitle}
               </span>
@@ -203,16 +203,16 @@ function App() {
               {T.hero.description}
             </p>
 
-            <div className={`flex flex-col sm:flex-row gap-6 pt-10 ${lang === 'ar' ? 'sm:flex-row-reverse' : ''}`}>
+            <div className={`flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 pt-10 ${lang === 'ar' ? 'sm:flex-row-reverse' : ''}`}>
               <a href="#projects" className="group px-8 py-4 bg-indie-text text-indie-bg rounded-full hover:bg-indie-primary hover:shadow-lg hover:shadow-indie-primary/20 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium flex items-center justify-center gap-3">
                 {T.hero.cta_work}
                 <span className={`${lang === 'ar' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'} transition-transform`}>{lang === 'ar' ? '←' : '→'}</span>
               </a>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 w-full sm:w-auto">
                 <a
                   href="/CV_Ilyace_KADRI.pdf"
                   download="CV_Ilyace_KADRI.pdf"
-                  className="px-8 py-4 bg-transparent text-indie-text border border-indie-text/20 rounded-full hover:border-indie-text hover:bg-indie-text/5 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium text-center shadow-sm"
+                  className="flex items-center justify-center w-full px-8 py-4 bg-transparent text-indie-text border border-indie-text/20 rounded-full hover:border-indie-text hover:bg-indie-text/5 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium text-center shadow-sm"
                 >
                   {T.hero.cta_cv}
                 </a>
@@ -225,7 +225,7 @@ function App() {
                   }
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-center text-[10px] tracking-[0.2em] uppercase text-indie-muted hover:text-indie-primary transition-colors"
+                  className="flex items-center justify-center w-full px-8 py-4 bg-transparent text-indie-text border border-indie-text/20 rounded-full hover:border-indie-text hover:bg-indie-text/5 transition-all duration-500 uppercase tracking-[0.2em] text-[11px] font-medium text-center shadow-sm"
                 >
                   {T.hero.cta_web}
                 </a>

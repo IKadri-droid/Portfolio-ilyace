@@ -9,7 +9,6 @@ const Stack = ({ className, t }) => {
     { name: 'Python', icon: SiPython, description: t.python },
     { name: 'Docker', icon: SiDocker, description: t.docker },
     { name: 'Linux', icon: SiLinux, description: t.linux },
-    { name: 'Kali Linux', icon: SiKalilinux, description: t.kali },
     { name: 'Bash', icon: SiGnubash, description: t.bash },
   ];
 
